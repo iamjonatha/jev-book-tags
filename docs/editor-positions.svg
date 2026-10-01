@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="740" viewBox="0 0 1000 740">
+<rect width="1000" height="740" fill="#f4f6f8"/>
+<g font-family="Helvetica,Arial,sans-serif" fill="#243444">
+<text x="32" y="42" font-size="25" font-weight="bold">JEV Book Tags · Metadata Editor Button Positions</text>
+<text x="32" y="70" font-size="15">Available options; only one position is used at a time.</text>
+<rect x="30" y="94" width="940" height="524" rx="12" fill="white" stroke="#bdc9d3"/>
+<rect x="31" y="95" width="938" height="40" rx="12" fill="#e5ebf0"/>
+<text x="52" y="122" font-size="17">Edit Metadata — Current Book</text>
+<text x="58" y="165" font-size="15">Main</text><text x="250" y="165" font-size="15" fill="#788a9c">Custom Metadata</text>
+<path d="M50 176H950" stroke="#d4dce4"/>
+<text x="55" y="211" font-size="16">Title</text><rect x="140" y="188" width="420" height="32" rx="4" fill="#f1f4f7"/>
+<text x="55" y="256" font-size="16">Authors</text><rect x="140" y="234" width="420" height="32" rx="4" fill="#f1f4f7"/>
+<rect x="55" y="290" width="160" height="200" rx="6" fill="#dae9eb"/><text x="91" y="395" font-size="17" fill="#466e72">Cover</text>
+<text x="625" y="211" font-size="16">Comments</text><rect x="625" y="225" width="305" height="265" rx="5" fill="#f1f4f7"/>
+<text x="243" y="322" font-size="16">Rating</text><rect x="344" y="300" width="216" height="32" rx="4" fill="#f1f4f7"/>
+<text x="245" y="370" font-size="16">Tags</text><rect x="292" y="349" width="190" height="32" rx="4" fill="#f1f4f7"/>
+<rect x="490" y="345" width="104" height="40" rx="6" fill="#edf7ed" stroke="#428647" stroke-width="2"/>
+<text x="502" y="371" font-size="15" fill="#28642d" font-weight="bold">B · JEV</text>
+<text x="243" y="417" font-size="16">Publisher</text><rect x="344" y="397" width="216" height="32" rx="4" fill="#f1f4f7"/>
+<text x="243" y="465" font-size="16">Languages</text><rect x="344" y="445" width="216" height="32" rx="4" fill="#f1f4f7"/>
+<rect x="55" y="510" width="875" height="40" rx="6" fill="#fff5e6" stroke="#c17a1f" stroke-width="2"/>
+<text x="77" y="536" font-size="16" fill="#965910" font-weight="bold">C · Dedicated row — Classify with JEV Book Tags</text>
+<path d="M50 567H950" stroke="#d4dce4"/>
+<text x="60" y="596" font-size="15">Previous</text><text x="175" y="596" font-size="15">Next</text>
+<rect x="294" y="575" width="370" height="32" rx="5" fill="#eaf2ff" stroke="#437fc3" stroke-width="2"/>
+<text x="307" y="597" font-size="15" fill="#23528a" font-weight="bold">A · Classify with JEV Book Tags (current)</text>
+<text x="731" y="596" font-size="15">Cancel</text><text x="860" y="596" font-size="15">OK</text>
+<text x="35" y="652" font-size="16" fill="#23528a">A · Bottom bar: full button, also available on other tabs.</text>
+<text x="35" y="682" font-size="16" fill="#28642d">B · Beside Tags: compact button on the main metadata tab.</text>
+<text x="35" y="712" font-size="16" fill="#965910">C · Row above the dialog controls: full button, available on every tab.</text>
+</g></svg>

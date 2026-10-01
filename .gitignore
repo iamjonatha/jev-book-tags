@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+
+# Internal planning notes; intentionally not part of the public repository.
+/ANALISI_FATTIBILITA.md
+/annotazioni.md
+
+# Generated packages, previews, and local download artifacts.
+/dist/
+plugin/translations/*.mo
+demo/epubs/
+demo/*.zip

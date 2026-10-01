@@ -1,0 +1,320 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\nLanguage: en\n"
+
+msgid "A — Bottom button bar"
+msgstr ""
+
+msgid "API key"
+msgstr ""
+
+msgid "Add tag"
+msgstr ""
+
+msgid "Added to editor; confirm with OK"
+msgstr ""
+
+msgid "Applied"
+msgstr ""
+
+msgid "Applied to {count} books."
+msgstr ""
+
+msgid "Applies when the metadata editor is next opened."
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Apply checked rows"
+msgstr ""
+
+msgid "Assign"
+msgstr ""
+
+msgid "Assignment threshold"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+msgid "Automatically apply results ready for assignment"
+msgstr ""
+
+msgid "B — Icon next to Tags"
+msgstr ""
+
+msgid "Book"
+msgstr ""
+
+msgid "Book could not be read"
+msgstr ""
+
+msgid "Book removed; skipped"
+msgstr ""
+
+msgid "Books: {count}. Input: {mode}. Destination: {field}."
+msgstr ""
+
+msgid "C — Dedicated row above the bottom buttons"
+msgstr ""
+
+msgid "Cancel processing"
+msgstr ""
+
+msgid "Cancelling; waiting for the current request to finish."
+msgstr ""
+
+msgid "Candidates within this probability distance of the best are considered close. Values at or below 0.5 are never added just because they are close."
+msgstr ""
+
+msgid "Check category names, unique IDs and thresholds between 0.5 and 1."
+msgstr ""
+
+msgid "Check plugin settings and local journal."
+msgstr ""
+
+msgid "Classify book tags automatically"
+msgstr ""
+
+msgid "Classify current book"
+msgstr ""
+
+msgid "Classify entire library"
+msgstr ""
+
+msgid "Classify selected books"
+msgstr ""
+
+msgid "Classify with {name}"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Close-probability tolerance"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Connection"
+msgstr ""
+
+msgid "Connection error; processing stopped"
+msgstr ""
+
+msgid "Connection failed. Check the key and network."
+msgstr ""
+
+msgid "Connection successful."
+msgstr ""
+
+msgid "Could not apply tags. Check the journal before retrying."
+msgstr ""
+
+msgid "Could not restore changes. Preserve the journal for inspection."
+msgstr ""
+
+msgid "Could not save file."
+msgstr ""
+
+msgid "Could not save the key. Check its value or disable Remember to use it for this session."
+msgstr ""
+
+msgid "Description / inclusion rules"
+msgstr ""
+
+msgid "EPUB extraction failed"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter an API key first."
+msgstr ""
+
+msgid "Enter an API key in plugin settings first."
+msgstr ""
+
+msgid "Evidence sufficiency"
+msgstr ""
+
+msgid "Existing tags"
+msgstr ""
+
+msgid "Export profile"
+msgstr ""
+
+msgid "Export results (CSV)"
+msgstr ""
+
+msgid "Export tag vocabulary"
+msgstr ""
+
+msgid "Import profile"
+msgstr ""
+
+msgid "Import tag vocabulary"
+msgstr ""
+
+msgid "Input"
+msgstr ""
+
+msgid "Insufficient evidence"
+msgstr ""
+
+msgid "Invalid category file."
+msgstr ""
+
+msgid "Invalid profile file."
+msgstr ""
+
+msgid "Maximum EPUB text characters"
+msgstr ""
+
+msgid "Metadata"
+msgstr ""
+
+msgid "Metadata + excerpts"
+msgstr ""
+
+msgid "Metadata and EPUB excerpts"
+msgstr ""
+
+msgid "Metadata changed; classify again"
+msgstr ""
+
+msgid "Metadata editor button"
+msgstr ""
+
+msgid "Metadata only"
+msgstr ""
+
+msgid "Model"
+msgstr ""
+
+msgid "Multiple tags, including close candidates"
+msgstr ""
+
+msgid "No EPUB available"
+msgstr ""
+
+msgid "No books selected."
+msgstr ""
+
+msgid "No changes to restore."
+msgstr ""
+
+msgid "No readable excerpts"
+msgstr ""
+
+msgid "One tag only"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Preview expired. Reopen the plugin for the current library and settings."
+msgstr ""
+
+msgid "Probabilities"
+msgstr ""
+
+msgid "Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors. New input tokens: {tokens}."
+msgstr ""
+
+msgid "Processing. Successful evaluations are cached for resume."
+msgstr ""
+
+msgid "Proposed tags (editable)"
+msgstr ""
+
+msgid "Ready for assignment"
+msgstr ""
+
+msgid "Ready. No book has been changed."
+msgstr ""
+
+msgid "Remember the key in the system keychain"
+msgstr ""
+
+msgid "Remove tag"
+msgstr ""
+
+msgid "Request"
+msgstr ""
+
+msgid "Request input"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Restore last application"
+msgstr ""
+
+msgid "Restore the last application? Books edited afterwards will be skipped."
+msgstr ""
+
+msgid "Restored {count} books; skipped {skipped} conflicts."
+msgstr ""
+
+msgid "Retry failed rows"
+msgstr ""
+
+msgid "Review required"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Single-tag mode: choose only one proposed tag"
+msgstr ""
+
+msgid "Start / resume"
+msgstr ""
+
+msgid "Starting sends book metadata and, when enabled, EPUB excerpts to TypeSafe AI. Existing tags are preserved."
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Suggested tags are added to the metadata form. They are saved only when you confirm that form with OK."
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Tag labels are saved exactly as entered. Changing the interface language does not rename existing tags."
+msgstr ""
+
+msgid "Test connection"
+msgstr ""
+
+msgid "The book data changed after classification. Run it again to inspect the exact input that was sent."
+msgstr ""
+
+msgid "The original input is no longer available. Run classification again to inspect the sent data."
+msgstr ""
+
+msgid "This is the request payload sent to TypeSafe AI. EPUB excerpts are partial samples."
+msgstr ""
+
+msgid "Threshold (optional)"
+msgstr ""
+
+msgid "Use only configured category names"
+msgstr ""
+
+msgid "Use the current form values and add suggested tags here. OK saves them; Cancel discards them."
+msgstr ""
+
+msgid "View sent input"
+msgstr ""
+
+msgid "Wait for the current processing job to finish."
+msgstr ""
+
+msgid "Without Remember, the API key stays in memory for this session. TYPESAFE_API_KEY is also supported."
+msgstr ""

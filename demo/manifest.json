@@ -1,0 +1,97 @@
+{
+  "source": "Project Gutenberg",
+  "language": "English",
+  "books": [
+    {
+      "page": "https://www.gutenberg.org/ebooks/1342",
+      "download": "https://www.gutenberg.org/ebooks/1342.epub3.images",
+      "file": "pride-and-prejudice.epub",
+      "sha256": "2897764671a164d2fd637c920beec515040b7af3b72bc885b71ad319071ea21b"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/1260",
+      "download": "https://www.gutenberg.org/ebooks/1260.epub3.images",
+      "file": "jane-eyre.epub",
+      "sha256": "9aad147af2f0e824765fbcf20eb91625a1847dd07c22a2a7664eb2c96b18cdb2"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/730",
+      "download": "https://www.gutenberg.org/ebooks/730.epub3.images",
+      "file": "oliver-twist.epub",
+      "sha256": "462c0535d400af1d647987072e9bfe27003c43abc8b875e0d43b195f6702cc55"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/2852",
+      "download": "https://www.gutenberg.org/ebooks/2852.epub3.images",
+      "file": "the-hound-of-the-baskervilles.epub",
+      "sha256": "893e86ac5cf5eb4ed19fae95a864d7c0dbb47f6d56979b61efdf57d4dcbdee8e"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/155",
+      "download": "https://www.gutenberg.org/ebooks/155.epub3.images",
+      "file": "the-moonstone.epub",
+      "sha256": "8aabf43087f9b0087103bfb86d445ee15d36d4b42e717099764d746983884993"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/204",
+      "download": "https://www.gutenberg.org/ebooks/204.epub3.images",
+      "file": "the-innocence-of-father-brown.epub",
+      "sha256": "d8d6f6b0ce0e0e3233b07a56249945b79c47683f9d9f1e9e58ae7ecbba0ce05a"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/11",
+      "download": "https://www.gutenberg.org/ebooks/11.epub3.images",
+      "file": "alices-adventures-in-wonderland.epub",
+      "sha256": "12cbc3610260503383ad7ecf800beb0d885a6011e15900b2bf61cecfc571d6c8"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/325",
+      "download": "https://www.gutenberg.org/ebooks/325.epub3.images",
+      "file": "phantastes.epub",
+      "sha256": "76ef66e4ec5ecc8076b29ab2063db0d3ef268456612e9b307db37d1456bb3876"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/55",
+      "download": "https://www.gutenberg.org/ebooks/55.epub3.images",
+      "file": "the-wonderful-wizard-of-oz.epub",
+      "sha256": "200775eb4001a6c4365ee8f48878bf76d0d3eb0cf76bda70e1cb923015cc5781"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/35",
+      "download": "https://www.gutenberg.org/ebooks/35.epub3.images",
+      "file": "the-time-machine.epub",
+      "sha256": "6fe07408989c3c74d498336408b811e27fef4103a44bc7b97c544141ff56f376"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/36",
+      "download": "https://www.gutenberg.org/ebooks/36.epub3.images",
+      "file": "the-war-of-the-worlds.epub",
+      "sha256": "7e7ce8fbcc602198e0f028d26d8691a142737f6a6ae5a85c60f46f97bddf5d95"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/84",
+      "download": "https://www.gutenberg.org/ebooks/84.epub3.images",
+      "file": "frankenstein.epub",
+      "sha256": "2c29669a2cc1a726d6264178a2e8e86529208fd61ef92ca627b1612b2d98b2bd"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/2376",
+      "download": "https://www.gutenberg.org/ebooks/2376.epub3.images",
+      "file": "up-from-slavery.epub",
+      "sha256": "d8674e32cb1ee084f47a6b4106125eef01ef1c2fb025faed1c51b8d8ed29a048"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/1228",
+      "download": "https://www.gutenberg.org/ebooks/1228.epub3.images",
+      "file": "on-the-origin-of-species.epub",
+      "sha256": "f7fac5a8e8b9cf689b2fade216634c88246b9f4ed841148fad4d0cbaac6f61a3"
+    },
+    {
+      "page": "https://www.gutenberg.org/ebooks/3420",
+      "download": "https://www.gutenberg.org/ebooks/3420.epub3.images",
+      "file": "a-vindication-of-the-rights-of-woman.epub",
+      "sha256": "0a63e495fb76075565a47619c7dca5b157d9523fe1f751c989e1e44c2ff3880a"
+    }
+  ],
+  "failures": []
+}

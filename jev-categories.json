@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "78c139cd29c446b68b46f236d2661d5c",
+      "enabled": true,
+      "name": "Fiction",
+      "description": "Fiction that does not primarily belong to another defined genre. Includes literary fiction, contemporary fiction, realistic fiction, and general novels or short stories. Excludes historical fiction, fantasy, science fiction, mystery/thriller, and adventure when those genre elements are central.",
+      "threshold": null
+    },
+    {
+      "id": "dbf08621a60d4452b8e42e22024199bf",
+      "enabled": true,
+      "name": "Mystery",
+      "description": "Fiction centered on a crime, mystery, or investigation, where discovering the truth, identifying the culprit, or solving the case is a central element of the story. Includes detective fiction and traditional mystery novels.",
+      "threshold": null
+    },
+    {
+      "id": "0bd8752098fd47bbb481128fc4d01366",
+      "enabled": true,
+      "name": "Noir",
+      "description": "Crime fiction characterized by a dark, pessimistic, or morally ambiguous atmosphere, often focusing on criminals, corruption, violence, social decay, or flawed protagonists. The investigation itself does not need to be the primary focus.",
+      "threshold": null
+    },
+    {
+      "id": "ab71534e67b34f6ab8b7504e41600b67",
+      "enabled": true,
+      "name": "Fantasy",
+      "description": "Fiction involving magic, supernatural forces, mythical creatures, imaginary worlds, or other fantastical elements that are not primarily explained through science.",
+      "threshold": null
+    },
+    {
+      "id": "7dc2037aaedc4d4e8cadc6363edde945",
+      "enabled": true,
+      "name": "Science Fiction",
+      "description": "Fiction primarily based on science, technology, scientific speculation, space exploration, extraterrestrial life, artificial intelligence, time travel, or future technological and societal developments.",
+      "threshold": null
+    },
+    {
+      "id": "0faa5deab212457ba06200053b992358",
+      "enabled": true,
+      "name": "History",
+      "description": "Non-fiction about real historical events, periods, civilizations, people, wars, political developments, or social transformations. Excludes historical fiction and fictionalized accounts.",
+      "threshold": null
+    },
+    {
+      "id": "591b3657bada45c2965eeb02279f1608",
+      "enabled": true,
+      "name": "Biography",
+      "description": "Non-fiction focused on the life of a real person or group of people. Includes biographies, autobiographies, memoirs, diaries, and personal life accounts.",
+      "threshold": null
+    },
+    {
+      "id": "6df9e4a63fe04cbfb27d2755a71d59aa",
+      "enabled": true,
+      "name": "Science",
+      "description": "Non-fiction focused on scientific disciplines, scientific knowledge, theories, discoveries, or research. Includes physics, chemistry, biology, astronomy, mathematics, earth sciences, neuroscience, and general scientific education. Excludes books primarily focused on software, computing, artificial intelligence, or practical technology.",
+      "threshold": null
+    },
+    {
+      "id": "b7b3015d5bb3414e96c21b006c430e56",
+      "enabled": true,
+      "name": "Computing",
+      "description": "Books primarily focused on computing, software, programming, computer systems, operating systems, databases, networking, cybersecurity, algorithms, software engineering, or practical use of computer technology. Includes programming and technical reference books. Excludes books whose primary subject is artificial intelligence or machine learning.",
+      "threshold": null
+    },
+    {
+      "id": "05aa135db19d4f06af11a58d0a9b7fcf",
+      "enabled": true,
+      "name": "Artificial Intelligence",
+      "description": "Books primarily focused on artificial intelligence, machine learning, deep learning, neural networks, generative AI, large language models, computer vision, natural language processing, AI systems, or the development and practical application of AI technologies. Excludes general computer science books where AI is only a minor topic.",
+      "threshold": null
+    },
+    {
+      "id": "ef695aadf9b74621a1e718dbeae9110b",
+      "enabled": true,
+      "name": "Nonfiction",
+      "description": "Non-fiction works that primarily analyze, explain, discuss, or argue about subjects not covered by the more specific categories. Includes philosophy, politics, economics, sociology, psychology, religion, culture, society, current affairs, business, and general essays.",
+      "threshold": null
+    }
+  ]
+}
