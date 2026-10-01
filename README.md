@@ -2,6 +2,8 @@
 
 JEV Book Tags is a calibre plugin that uses TypeSafe AI JEV to suggest subject and genre tags for books in a calibre library. It preserves existing tags and lets you review suggestions before applying them.
 
+**Free and independent:** this plugin is free, open-source software (GPL-3.0-or-later). It is not affiliated with, sponsored by, or endorsed by TypeSafe AI or the calibre project. There are no referral or affiliate links. TypeSafe AI is a separate service: using its API requires your own key and may incur charges.
+
 ![JEV Book Tags demonstration](docs/media/jev-book-tags-demo.gif)
 
 [Watch the video](docs/media/jev-book-tags-demo.mp4) · [Try the live presentation](https://iamjonatha.github.io/jev-book-tags/) · [Full results and production notes](docs/DEMO.md) · [Import the English demo categories](demo/JEVBookTags-categories-en.json)
