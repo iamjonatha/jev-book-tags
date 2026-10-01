@@ -15,6 +15,24 @@ JEV Book Tags is a calibre plugin that uses TypeSafe AI JEV to suggest subject a
 - Add a classification button to calibre's metadata editor.
 - Follow calibre's interface language when a translation is installed; untranslated strings use the English source text.
 
+## Getting started with TypeSafe AI and Jev
+
+Jev is TypeSafe AI's System One model for structured decisions. Instead of writing a paragraph, it answers typed questions such as yes/no, choose-one, or score, with probabilities your software can use. Read the [official introduction](https://docs.typesafe.ai/introduction) for an overview and the [official quick start](https://docs.typesafe.ai/introduction/quickstart) for examples in the Playground and API.
+
+### Create an account and API key
+
+1. Open the [TypeSafe console](https://console.typesafe.ai). Sign in with Google or enter your email address and choose **Email me a code instead**.
+2. In the console, open [API keys](https://console.typesafe.ai/keys) and create a key. Copy it into the plugin's **API key** field in **JEV Book Tags → Settings**. The plugin can keep it for the current calibre session or store it in your operating system's keychain when available. Never commit or share the key.
+3. Choose **Test connection** in the plugin settings. The plugin calls TypeSafe's hosted API at `https://api.typesafe.ai/v1/systemone`.
+
+### Credits and cost
+
+> **Free-credit status, checked 1 October 2026:** New TypeSafe accounts currently do **not** receive free signup credits. The earlier **$5** signup-credit offer was temporary (and denominated in US dollars, not euros). On 27 September 2026, TypeSafe said new signups no longer receive free credits and that it hopes to bring them back. Check the [TypeSafe console](https://console.typesafe.ai) and its [official announcement](https://x.com/typesafeai/status/2104337824292220981) for the current offer; do not assume a €5 or $5 balance will be available.
+
+The [official model and pricing page](https://docs.typesafe.ai/models) currently lists Jev at **$0.042 per million input tokens**; output tokens are free. The plugin shows newly used input tokens in its results, but the amount billed and any available credit balance are controlled by TypeSafe. Check the console before processing a large library.
+
+Jev is not a general-purpose text generator: it returns structured decisions and can still classify a book incorrectly, so review uncertain results. This plugin sends book metadata to TypeSafe, and can also send partial EPUB excerpts when that input mode is enabled. TypeSafe's documentation says Jev is not trained on customer requests or responses; review the [Master Customer Agreement](https://typesafe.ai/legal/mca), [Data Processing Addendum](https://typesafe.ai/legal/data-processing), and [official data-handling notes](https://docs.typesafe.ai/models#data-handling) to understand the service terms before sending library content.
+
 ## Install
 
 1. Download the latest plugin ZIP from the project's GitHub Releases page.
