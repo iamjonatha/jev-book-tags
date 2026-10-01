@@ -39,7 +39,7 @@ report = dict(original, plugin_version='.'.join(map(str, brand['VERSION'])),
 report['original_api_elapsed_seconds'] = report.pop('elapsed_seconds')
 (OUT / 'real-results.json').write_text(json.dumps(report, indent=2)+'\n')
 with (OUT / 'real-results.csv').open('w', newline='') as stream:
-    writer=csv.writer(stream); writer.writerow(['title','suggested_tags','status','source','evidence','new_input_tokens','decision_reason'])
+    writer=csv.writer(stream, lineterminator="\n"); writer.writerow(['title','suggested_tags','status','source','evidence','new_input_tokens','decision_reason'])
     for r in public:
         writer.writerow([r['title'],'; '.join(r['tags']),r['status'],r['source'],r['evaluation']['probabilities']['evidence'],0,r['reason']])
 (OUT / 'demo-categories-en.json').write_text(json.dumps({'version':1,'categories':settings['categories']},indent=2)+'\n')

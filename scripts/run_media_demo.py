@@ -64,7 +64,7 @@ report={'recorded_at_utc':started,'elapsed_seconds':round(time.monotonic()-tic,2
         'results':public,'simulated':False}
 (ROOT/'docs/media/real-results.json').write_text(json.dumps(report,indent=2)+'\n')
 with (ROOT/'docs/media/real-results.csv').open('w',newline='') as stream:
-    writer=csv.writer(stream);writer.writerow(['title','suggested_tags','status','source','evidence','new_input_tokens'])
+    writer=csv.writer(stream, lineterminator="\n");writer.writerow(['title','suggested_tags','status','source','evidence','new_input_tokens'])
     for r in public:
         writer.writerow([r['title'],'; '.join(r['tags']),r['status'],r['source'],r['evaluation']['probabilities'].get('evidence'),r['tokens_billed']])
 print('Completed:',len(public),'genuine evaluations. API key not saved or exported.',flush=True)

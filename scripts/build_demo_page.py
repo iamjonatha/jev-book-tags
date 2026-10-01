@@ -41,5 +41,5 @@ def timestamp(t):return f'{t//3600:02}:{t//60%60:02}:{t%60:02}.000'
 lines=['WEBVTT',''];time=0
 for chapter in chapters:
  end=time+chapter['duration_seconds'];lines += [f'{timestamp(time)} --> {timestamp(end)}',chapter['title'],''];time=end
-(MEDIA/'demo.vtt').write_text('\n'.join(lines)+'\n')
+(MEDIA/'demo.vtt').write_text('\n'.join(lines).rstrip()+'\n')
 print('Built presentation page: 32 rows, status filter, video and captions.')
