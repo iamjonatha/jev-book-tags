@@ -57,6 +57,7 @@ def classify(metadata, settings, client, store, content_loader=None):
             evaluation, decision = evaluate()
     if settings['mode'] == 'content' and (warning or used != 'content'):
         decision['status'] = 'review'
+        decision['reason'] = 'content_unavailable'
     return {**decision, 'evaluation': evaluation, 'source': used,
             'warning': warning, 'tokens_billed': tokens, 'input_chars': len(str(state)),
             'input_fingerprint': last_fingerprint}

@@ -1,0 +1,74 @@
+name: Validate and release
+on:
+  push:
+    branches: [main, release]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      tag: ${{ steps.assets.outputs.tag }}
+      version: ${{ steps.assets.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Build and test classification logic
+        run: |
+          python scripts/build.py
+          python -m unittest discover -s tests -v
+      - name: Install official calibre for isolated integration tests
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libopengl0 libxcb-cursor0 libxkbcommon-x11-0 libnss3 libasound2t64
+          curl --fail --location --silent --show-error https://download.calibre-ebook.com/linux-installer.sh -o "$RUNNER_TEMP/calibre-installer.sh"
+          sudo sh "$RUNNER_TEMP/calibre-installer.sh"
+      - name: Test native English and Italian interfaces
+        run: |
+          python scripts/test_calibre.py --language en
+          python scripts/test_calibre.py --language it
+      - name: Prepare release and MobileRead handoff
+        id: assets
+        env:
+          RELEASE_REPO: ${{ github.repository }}
+        run: python scripts/prepare_release.py --repo "$RELEASE_REPO"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-${{ steps.assets.outputs.tag }}
+          path: dist/release/
+          if-no-files-found: error
+  publish:
+    needs: validate
+    if: github.ref == 'refs/heads/release' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build the same validated release assets
+        env:
+          RELEASE_REPO: ${{ github.repository }}
+        run: |
+          python3 scripts/build.py
+          python3 scripts/prepare_release.py --repo "$RELEASE_REPO"
+      - name: Publish a new version without replacing an existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ needs.validate.outputs.tag }}
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Release $RELEASE_TAG already exists. Increment both version declarations and add a changelog section to publish another version."
+            exit 0
+          fi
+          gh release create "$RELEASE_TAG" dist/release/* --target "$RELEASE_SHA" --title "JEV Book Tags $RELEASE_TAG" --notes-file dist/release/release-notes.md --draft
+          gh release edit "$RELEASE_TAG" --draft=false --latest

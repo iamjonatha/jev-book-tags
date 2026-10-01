@@ -1,0 +1,137 @@
+[
+  {
+    "title": "A Vindication of the Rights of Woman / With Strictures on Political and Moral Subjects",
+    "authors": [
+      "Mary Wollstonecraft"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 1,
+    "description": true
+  },
+  {
+    "title": "Alice's Adventures in Wonderland",
+    "authors": [
+      "Lewis Carroll"
+    ],
+    "status": "Online description downloaded",
+    "id": 2,
+    "description": true
+  },
+  {
+    "title": "Frankenstein; or, the modern prometheus",
+    "authors": [
+      "Mary Wollstonecraft Shelley"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 3,
+    "description": true
+  },
+  {
+    "title": "Jane Eyre: An Autobiography",
+    "authors": [
+      "Charlotte Bront\u00eb"
+    ],
+    "status": "Online description downloaded",
+    "id": 4,
+    "description": true
+  },
+  {
+    "title": "Oliver Twist",
+    "authors": [
+      "Charles Dickens"
+    ],
+    "status": "Online description downloaded",
+    "id": 5,
+    "description": true
+  },
+  {
+    "title": "On the Origin of Species By Means of Natural Selection / Or, the Preservation of Favoured Races in the Struggle for Life",
+    "authors": [
+      "Charles Darwin"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 6,
+    "description": true
+  },
+  {
+    "title": "Phantastes: A Faerie Romance for Men and Women",
+    "authors": [
+      "George MacDonald"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 7,
+    "description": true
+  },
+  {
+    "title": "Pride and Prejudice",
+    "authors": [
+      "Jane Austen"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 8,
+    "description": true
+  },
+  {
+    "title": "The Hound of the Baskervilles",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "status": "Online description downloaded",
+    "id": 9,
+    "description": true
+  },
+  {
+    "title": "The innocence of Father Brown",
+    "authors": [
+      "G. K. Chesterton"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 10,
+    "description": true
+  },
+  {
+    "title": "The Moonstone",
+    "authors": [
+      "Wilkie Collins"
+    ],
+    "status": "Online description downloaded",
+    "id": 11,
+    "description": true
+  },
+  {
+    "title": "The Time Machine",
+    "authors": [
+      "H. G. Wells"
+    ],
+    "status": "Online description downloaded",
+    "id": 12,
+    "description": true
+  },
+  {
+    "title": "The war of the worlds",
+    "authors": [
+      "H. G. Wells"
+    ],
+    "status": "Online description downloaded",
+    "id": 13,
+    "description": true
+  },
+  {
+    "title": "The Wonderful Wizard of Oz",
+    "authors": [
+      "L. Frank Baum"
+    ],
+    "status": "Description downloaded from Project Gutenberg (source-generated summary)",
+    "id": 14,
+    "description": true
+  },
+  {
+    "title": "Up from Slavery: An Autobiography",
+    "authors": [
+      "Booker T. Washington"
+    ],
+    "status": "Online description downloaded",
+    "id": 15,
+    "description": true
+  }
+]

@@ -140,34 +140,51 @@ def validate_response(response, expected):
             'input_tokens': tokens}
 
 
+def ranked_candidates(evaluation, settings):
+    """Independent category scores; probabilities do not sum to one."""
+    p = evaluation['probabilities']
+    candidates = [dict(c, probability=p['cat_' + c['id']],
+                       effective_threshold=c.get('threshold') or settings['threshold'])
+                  for c in settings['categories'] if c.get('enabled', True)]
+    candidates.sort(key=lambda c: (-c['probability'], c['name'].casefold()))
+    best = candidates[0]['probability'] if candidates else 0
+    for c in candidates:
+        c['qualified'] = c['probability'] > 0.5 and c['probability'] >= c['effective_threshold']
+        c['close'] = c['probability'] > 0.5 and best - c['probability'] <= settings.get('tie_margin', 0.08) + 1e-9
+    return candidates
+
+
 def decide(evaluation, settings, has_material):
     p = evaluation['probabilities']
     supported = has_material and p['evidence'] >= 0.8
-    candidates = [c for c in settings['categories'] if c.get('enabled', True)]
-    ranked = sorted(candidates, key=lambda c: p['cat_' + c['id']], reverse=True)
-    if not ranked:
-        return {'tags': [], 'status': 'review', 'supported': supported, 'ambiguous': False, 'close_tags': []}
-    best = ranked[0]
-    best_p = p['cat_' + best['id']]
-    margin = settings.get('tie_margin', 0.08)
-    close = [c for c in ranked if p['cat_' + c['id']] > 0.5
-             and best_p - p['cat_' + c['id']] <= margin + 1e-9]
-    qualified = [c for c in candidates if p['cat_' + c['id']] >= (c.get('threshold') or settings['threshold'])]
-    if settings.get('editor_position', 'tags') not in ('tags', 'bottom', 'row'):
-        raise ValueError('Invalid metadata editor button position')
+    ranked = ranked_candidates(evaluation, settings)
+    qualified = [c for c in ranked if c['qualified']]
+    close = [c for c in ranked if c['close']]
+    best = ranked[0] if ranked else None
+    ambiguous = False
     if settings.get('tag_mode', 'multiple') == 'single':
-        tags = [best['name']] if best_p > 0.5 else []
+        selected = [best] if best and best['probability'] > 0.5 else []
         ambiguous = len(close) > 1
-        confident = best in qualified
+        confident = bool(best and best['qualified'])
     else:
-        selected = {c['id'] for c in qualified + close}
-        tags = [c['name'] for c in candidates if c['id'] in selected]
-        ambiguous = any(c['id'] not in selected and
-                        1 - (c.get('threshold') or settings['threshold']) < p['cat_' + c['id']] < (c.get('threshold') or settings['threshold'])
-                        for c in candidates)
+        # A below-threshold alternative never blocks confident independent tags.
+        # If nothing qualifies, close candidates remain review-only suggestions.
+        selected = qualified or close
         confident = bool(qualified)
-    status = 'ready' if supported and confident and not ambiguous and tags else 'review'
-    return {'tags': tags if supported else [], 'status': status,
+    if not has_material:
+        reason = 'missing_material'
+    elif p['evidence'] < 0.8:
+        reason = 'low_evidence'
+    elif not selected:
+        reason = 'no_likely_tag'
+    elif not confident:
+        reason = 'below_threshold'
+    elif ambiguous:
+        reason = 'near_tie'
+    else:
+        reason = 'ready'
+    return {'tags': [c['name'] for c in selected] if supported else [],
+            'status': 'ready' if reason == 'ready' else 'review', 'reason': reason,
             'supported': supported, 'ambiguous': ambiguous,
             'close_tags': [c['name'] for c in close] if len(close) > 1 else []}
 

@@ -18,6 +18,13 @@ BOOKS = [
     (36, 'the-war-of-the-worlds'), (84, 'frankenstein'),
     (2376, 'up-from-slavery'), (1228, 'on-the-origin-of-species'),
     (3420, 'a-vindication-of-the-rights-of-woman'),
+    (2701, 'moby-dick'), (1661, 'the-adventures-of-sherlock-holmes'),
+    (174, 'the-picture-of-dorian-gray'), (120, 'treasure-island'),
+    (219, 'heart-of-darkness'), (1400, 'great-expectations'),
+    (76, 'adventures-of-huckleberry-finn'), (74, 'the-adventures-of-tom-sawyer'),
+    (161, 'sense-and-sensibility'), (1322, 'leaves-of-grass'),
+    (345, 'dracula'), (43, 'dr-jekyll-and-mr-hyde'),
+    (17396, 'the-secret-garden'), (205, 'walden'), (3207, 'leviathan'),
 ]
 
 
@@ -46,11 +53,16 @@ def main():
         page = f'https://www.gutenberg.org/ebooks/{book_id}'
         path = target / (slug.replace('/', '_') + '.epub')
         try:
-            download = f'https://www.gutenberg.org/ebooks/{book_id}.epub3.images'
+            download = f'https://www.gutenberg.org/cache/epub/{book_id}/pg{book_id}-images-3.epub'
             if not valid_epub(path):
                 temp = path.with_suffix('.part')
                 try:
-                    temp.write_bytes(fetch(download))
+                    try:
+                        payload = fetch(download)
+                    except Exception:
+                        download = f'https://www.gutenberg.org/cache/epub/{book_id}/pg{book_id}.epub'
+                        payload = fetch(download)
+                    temp.write_bytes(payload)
                     if not valid_epub(temp):
                         raise ValueError('Invalid EPUB')
                     temp.replace(path)

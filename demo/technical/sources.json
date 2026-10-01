@@ -1,0 +1,27 @@
+[
+  {
+    "file": "progit.epub",
+    "title": "Pro Git",
+    "authors": [
+      "Scott Chacon",
+      "Ben Straub"
+    ],
+    "page": "https://git-scm.com/book/en/v2",
+    "download": "https://github.com/progit/progit2/releases/download/2.1.450/progit.epub",
+    "license": "CC BY-NC-SA 3.0",
+    "format": "EPUB",
+    "description": "An English guide to Git version control, from repositories, commits and branches to remotes, collaboration workflows, GitHub, advanced tools and Git internals. The second edition is maintained with corrections and additions by the Pro Git community."
+  },
+  {
+    "file": "the-linux-command-line.pdf",
+    "title": "The Linux Command Line",
+    "authors": [
+      "William Shotts"
+    ],
+    "page": "https://linuxcommand.org/tlcl.php",
+    "download": "https://downloads.sourceforge.net/project/linuxcommand/TLCL/25.12/TLCL-25.12A.pdf",
+    "license": "CC BY-NC-ND 3.0",
+    "format": "PDF",
+    "description": "Seventh Internet Edition of an English guide to Linux command-line use and shell scripting. It explains navigating the filesystem, permissions, processes, text processing, regular expressions, common command-line programs and writing Bash scripts. Intended for new command-line users, with practical exercises and increasingly advanced techniques."
+  }
+]

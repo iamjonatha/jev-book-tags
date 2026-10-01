@@ -12,3 +12,14 @@ __pycache__/
 plugin/translations/*.mo
 demo/epubs/
 demo/*.zip
+demo/calibre-config/
+demo/calibre-library/
+demo/metadata/
+
+# Private demonstration workspaces and downloaded technical editions.
+demo/media-work/
+demo/technical/*.epub
+demo/technical/*.pdf
+demo/*.db
+demo/calibre-launch.log
+demo/categories-before-english-import.json

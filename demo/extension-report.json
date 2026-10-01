@@ -1,0 +1,87 @@
+[
+  {
+    "title": "Moby Dick; Or, The Whale",
+    "id": 17,
+    "file": "moby-dick.epub"
+  },
+  {
+    "title": "The Adventures of Sherlock Holmes",
+    "id": 18,
+    "file": "the-adventures-of-sherlock-holmes.epub"
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "id": 19,
+    "file": "the-picture-of-dorian-gray.epub"
+  },
+  {
+    "title": "Treasure Island",
+    "id": 20,
+    "file": "treasure-island.epub"
+  },
+  {
+    "title": "Heart of Darkness",
+    "id": 21,
+    "file": "heart-of-darkness.epub"
+  },
+  {
+    "title": "Great Expectations",
+    "id": 22,
+    "file": "great-expectations.epub"
+  },
+  {
+    "title": "Adventures of Huckleberry Finn",
+    "id": 23,
+    "file": "adventures-of-huckleberry-finn.epub"
+  },
+  {
+    "title": "The Adventures of Tom Sawyer, Complete",
+    "id": 24,
+    "file": "the-adventures-of-tom-sawyer.epub"
+  },
+  {
+    "title": "Sense and Sensibility",
+    "id": 25,
+    "file": "sense-and-sensibility.epub"
+  },
+  {
+    "title": "Leaves of Grass",
+    "id": 26,
+    "file": "leaves-of-grass.epub"
+  },
+  {
+    "title": "Dracula",
+    "id": 27,
+    "file": "dracula.epub"
+  },
+  {
+    "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+    "id": 28,
+    "file": "dr-jekyll-and-mr-hyde.epub"
+  },
+  {
+    "title": "The Secret Garden",
+    "id": 29,
+    "file": "the-secret-garden.epub"
+  },
+  {
+    "title": "Walden, and On The Duty Of Civil Disobedience",
+    "id": 30,
+    "file": "walden.epub"
+  },
+  {
+    "title": "Leviathan",
+    "id": 31,
+    "file": "leviathan.epub"
+  },
+  {
+    "title": "Pro Git",
+    "id": 32,
+    "file": "progit.epub"
+  },
+  {
+    "title": "The Linux Command Line",
+    "id": 33,
+    "file": "the-linux-command-line.pdf"
+  }
+]

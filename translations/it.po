@@ -1,17 +1,35 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8\nLanguage: it\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "A tag must exceed 50% and reach its own threshold to be assigned automatically. Below-threshold candidates require your confirmation."
+msgstr "Per l’assegnazione automatica un tag deve superare il 50% e raggiungere la propria soglia. I candidati sotto soglia richiedono la tua conferma."
+
+msgid "A title and author alone are not enough. Add a meaningful description or readable EPUB excerpts."
+msgstr "Titolo e autore da soli non bastano. Aggiungi una descrizione significativa o estratti EPUB leggibili."
+
 msgid "A — Bottom button bar"
 msgstr "A — Barra dei pulsanti inferiore"
 
 msgid "API key"
 msgstr "Chiave API"
 
+msgid "Above threshold"
+msgstr "Sopra soglia"
+
 msgid "Add tag"
 msgstr "Aggiungi tag"
 
+msgid "Add to metadata form"
+msgstr "Aggiungi ai metadati"
+
 msgid "Added to editor; confirm with OK"
 msgstr "Inserito nell’editor; conferma con OK"
+
+msgid "Advanced options"
+msgstr "Opzioni avanzate"
+
+msgid "All"
+msgstr "Tutti"
 
 msgid "Applied"
 msgstr "Applicato"
@@ -28,6 +46,12 @@ msgstr "Applica"
 msgid "Apply checked rows"
 msgstr "Applica alle righe spuntate"
 
+msgid "Apply selected books ({count}, {hidden} hidden)"
+msgstr "Applica ai libri selezionati ({count}, {hidden} nascosti)"
+
+msgid "Apply tags"
+msgstr "Applica tag"
+
 msgid "Assign"
 msgstr "Assegna"
 
@@ -43,11 +67,17 @@ msgstr "Applica automaticamente i risultati pronti per l’assegnazione"
 msgid "B — Icon next to Tags"
 msgstr "B — Icona accanto ai Tag"
 
+msgid "Below threshold"
+msgstr "Sotto soglia"
+
 msgid "Book"
 msgstr "Libro"
 
 msgid "Book could not be read"
 msgstr "Impossibile leggere il libro"
+
+msgid "Book details"
+msgstr "Dettaglio del libro"
 
 msgid "Book removed; skipped"
 msgstr "Libro rimosso; saltato"
@@ -63,9 +93,6 @@ msgstr "Interrompi elaborazione"
 
 msgid "Cancelling; waiting for the current request to finish."
 msgstr "Interruzione richiesta; attendo la conclusione della richiesta in corso."
-
-msgid "Candidates within this probability distance of the best are considered close. Values at or below 0.5 are never added just because they are close."
-msgstr "Sono vicini i candidati entro questa differenza di probabilità dal migliore. Valori pari o inferiori a 0,5 non vengono aggiunti solo perché vicini."
 
 msgid "Check category names, unique IDs and thresholds between 0.5 and 1."
 msgstr "Controlla nomi delle categorie, ID univoci e soglie tra 0,5 e 1."
@@ -88,14 +115,23 @@ msgstr "Classifica i libri selezionati"
 msgid "Classify with {name}"
 msgstr "Classifica con {name}"
 
+msgid "Click a tag to include or exclude it. Percentages are JEV confidence, not measured accuracy. Below-threshold tags require your explicit confirmation."
+msgstr "Fai clic su un tag per includerlo o escluderlo. Le percentuali indicano la confidenza JEV, non un’accuratezza misurata. I tag sotto soglia richiedono la tua conferma esplicita."
+
 msgid "Close"
 msgstr "Chiudi"
+
+msgid "Close candidate, below threshold"
+msgstr "Candidato vicino, sotto soglia"
 
 msgid "Close-probability tolerance"
 msgstr "Tolleranza per probabilità vicine"
 
 msgid "Configuration"
 msgstr "Configurazione"
+
+msgid "Confirm tags"
+msgstr "Conferma tag"
 
 msgid "Connection"
 msgstr "Connessione"
@@ -124,8 +160,20 @@ msgstr "Impossibile salvare la chiave. Controlla il valore o disattiva Ricorda p
 msgid "Description / inclusion rules"
 msgstr "Descrizione / criteri di inclusione"
 
+msgid "Details"
+msgstr "Dettagli"
+
+msgid "Details…"
+msgstr "Dettagli…"
+
+msgid "EPUB excerpts were requested but are unavailable. Confirm a metadata-based choice manually."
+msgstr "Gli estratti EPUB richiesti non sono disponibili. Conferma manualmente una scelta basata sui metadati."
+
 msgid "EPUB extraction failed"
 msgstr "Estrazione EPUB non riuscita"
+
+msgid "Enable developer mode"
+msgstr "Attiva modalità sviluppatore"
 
 msgid "Enabled"
 msgstr "Attiva"
@@ -136,11 +184,17 @@ msgstr "Inserisci prima una chiave API."
 msgid "Enter an API key in plugin settings first."
 msgstr "Inserisci prima una chiave API nelle impostazioni del plugin."
 
-msgid "Evidence sufficiency"
-msgstr "Sufficienza delle informazioni"
+msgid "Enter your TypeSafe AI API key"
+msgstr "Inserisci la tua chiave API TypeSafe AI"
+
+msgid "Errors"
+msgstr "Errori"
 
 msgid "Existing tags"
 msgstr "Tag esistenti"
+
+msgid "Existing tags (preserved): {tags}"
+msgstr "Tag esistenti (conservati): {tags}"
 
 msgid "Export profile"
 msgstr "Esporta profilo"
@@ -160,6 +214,9 @@ msgstr "Importa elenco di tag"
 msgid "Input"
 msgstr "Dati analizzati"
 
+msgid "Input: {source}. Evidence confidence: {evidence:.0%}."
+msgstr "Dati analizzati: {source}. Confidenza sul materiale: {evidence:.0%}."
+
 msgid "Insufficient evidence"
 msgstr "Informazioni insufficienti"
 
@@ -168,6 +225,9 @@ msgstr "File delle categorie non valido."
 
 msgid "Invalid profile file."
 msgstr "File del profilo non valido."
+
+msgid "JEV evidence confidence is below 80%. The available material may not represent the book."
+msgstr "La confidenza JEV sul materiale è sotto l’80%. I dati disponibili potrebbero non rappresentare il libro."
 
 msgid "Maximum EPUB text characters"
 msgstr "Caratteri massimi estratti dall’EPUB"
@@ -193,8 +253,11 @@ msgstr "Solo metadati"
 msgid "Model"
 msgstr "Modello"
 
-msgid "Multiple tags, including close candidates"
-msgstr "Più tag, inclusi i candidati con probabilità vicine"
+msgid "Multiple tags above their thresholds"
+msgstr "Più tag sopra le rispettive soglie"
+
+msgid "New input tokens: {tokens}."
+msgstr "Nuovi token di input: {tokens}."
 
 msgid "No EPUB available"
 msgstr "EPUB non disponibile"
@@ -205,11 +268,29 @@ msgstr "Nessun libro selezionato."
 msgid "No changes to restore."
 msgstr "Nessuna modifica da ripristinare."
 
+msgid "No configured category exceeds 50%. Choose manually or improve the category definitions."
+msgstr "Nessuna categoria configurata supera il 50%. Scegli manualmente o migliora le definizioni delle categorie."
+
+msgid "No evaluation is available for this book."
+msgstr "Nessuna valutazione disponibile per questo libro."
+
 msgid "No readable excerpts"
 msgstr "Nessun estratto leggibile"
 
+msgid "No tag reaches its assignment threshold. These are suggestions to confirm manually."
+msgstr "Nessun tag raggiunge la soglia di assegnazione. Queste proposte richiedono una conferma manuale."
+
+msgid "None"
+msgstr "Nessuno"
+
 msgid "One tag only"
 msgstr "Un solo tag"
+
+msgid "Optional override of the global threshold: enter 0.95 for 95%, or leave empty to use the global value."
+msgstr "Soglia specifica facoltativa: inserisci 0.95 per il 95%, oppure lascia vuoto per usare il valore generale."
+
+msgid "Percentage points from the best score. In single-tag mode a close competitor requires review. In multi-tag mode a close candidate below its own threshold remains optional, never automatically assigned."
+msgstr "Punti percentuali rispetto al punteggio migliore. Con un solo tag un candidato vicino richiede verifica. Con più tag un candidato vicino sotto la propria soglia resta facoltativo e non viene assegnato automaticamente."
 
 msgid "Preview"
 msgstr "Anteprima"
@@ -217,17 +298,14 @@ msgstr "Anteprima"
 msgid "Preview expired. Reopen the plugin for the current library and settings."
 msgstr "Anteprima scaduta. Riapri il plugin per la libreria e le impostazioni attuali."
 
-msgid "Probabilities"
-msgstr "Probabilità"
-
-msgid "Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors. New input tokens: {tokens}."
-msgstr "Elaborati {processed}/{total}. Risultati: {ready} pronti; {review} da verificare; {unsupported} con informazioni insufficienti; {errors} errori. Nuovi token di input: {tokens}."
+msgid "Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors."
+msgstr "Elaborati {processed}/{total}. Risultati: {ready} pronti; {review} da verificare; {unsupported} con materiale insufficiente; {errors} errori."
 
 msgid "Processing. Successful evaluations are cached for resume."
 msgstr "Elaborazione in corso. Le valutazioni riuscite vengono conservate per la ripresa."
 
-msgid "Proposed tags (editable)"
-msgstr "Tag proposti (modificabili)"
+msgid "Ready / verified"
+msgstr "Pronti / verificati"
 
 msgid "Ready for assignment"
 msgstr "Pronto per l’assegnazione"
@@ -240,9 +318,6 @@ msgstr "Ricorda la chiave nel portachiavi di sistema"
 
 msgid "Remove tag"
 msgstr "Rimuovi tag"
-
-msgid "Request"
-msgstr "Richiesta"
 
 msgid "Request input"
 msgstr "Dati della richiesta"
@@ -265,14 +340,41 @@ msgstr "Riprova le righe non riuscite"
 msgid "Review required"
 msgstr "Da verificare"
 
+msgid "Select visible ready books"
+msgstr "Seleziona i libri pronti visibili"
+
+msgid "Selected books: {count} ({hidden} outside the filter)"
+msgstr "Libri selezionati: {count} ({hidden} fuori dal filtro)"
+
+msgid "Selected tags reach their thresholds and the evidence is sufficient."
+msgstr "I tag selezionati raggiungono le rispettive soglie e il materiale è sufficiente."
+
+msgid "Selected tags: {tags}"
+msgstr "Tag selezionati: {tags}"
+
 msgid "Settings"
 msgstr "Impostazioni"
+
+msgid "Show"
+msgstr "Mostra"
+
+msgid "Show all categories, including low probabilities"
+msgstr "Mostra tutte le categorie, comprese le probabilità basse"
+
+msgid "Show sent input and technical processing statistics."
+msgstr "Mostra i dati inviati e le statistiche tecniche di elaborazione."
 
 msgid "Single-tag mode: choose only one proposed tag"
 msgstr "Modalità tag singolo: scegli un solo tag proposto"
 
+msgid "Single-tag mode: two or more likely candidates are within the closeness margin. Choose one."
+msgstr "Modalità tag singolo: due o più candidati plausibili sono entro il margine di vicinanza. Scegline uno."
+
 msgid "Start / resume"
 msgstr "Avvia / riprendi"
+
+msgid "Start classification to see suggested tags for this book."
+msgstr "Avvia la classificazione per vedere i tag suggeriti per questo libro."
 
 msgid "Starting sends book metadata and, when enabled, EPUB excerpts to TypeSafe AI. Existing tags are preserved."
 msgstr "L’avvio invia i metadati e, se abilitati, estratti EPUB a TypeSafe AI. I tag esistenti vengono conservati."
@@ -289,6 +391,9 @@ msgstr "Tag"
 msgid "Tag labels are saved exactly as entered. Changing the interface language does not rename existing tags."
 msgstr "I nomi dei tag vengono salvati come inseriti. Cambiare la lingua dell’interfaccia non rinomina i tag esistenti."
 
+msgid "Tags to assign"
+msgstr "Tag da assegnare"
+
 msgid "Test connection"
 msgstr "Verifica connessione"
 
@@ -304,11 +409,20 @@ msgstr "Questo è il payload inviato a TypeSafe AI. Gli estratti EPUB sono campi
 msgid "Threshold (optional)"
 msgstr "Soglia (facoltativa)"
 
+msgid "To review"
+msgstr "Da verificare"
+
+msgid "Top confidence"
+msgstr "Confidenza principale"
+
 msgid "Use only configured category names"
 msgstr "Usa soltanto nomi di categorie configurate"
 
 msgid "Use the current form values and add suggested tags here. OK saves them; Cancel discards them."
 msgstr "Usa i valori attuali del modulo e inserisci qui i tag suggeriti. OK li salva; Annulla li scarta."
+
+msgid "Verified by you"
+msgstr "Verificato dall’utente"
 
 msgid "View sent input"
 msgstr "Mostra dati inviati"
@@ -316,5 +430,20 @@ msgstr "Mostra dati inviati"
 msgid "Wait for the current processing job to finish."
 msgstr "Attendi la conclusione dell’elaborazione in corso."
 
-msgid "Without Remember, the API key stays in memory for this session. TYPESAFE_API_KEY is also supported."
-msgstr "Senza Memorizza, la chiave API resta in memoria per questa sessione. È supportata anche TYPESAFE_API_KEY."
+msgid "Without Remember, the API key stays in memory for this session."
+msgstr "Senza Memorizza, la chiave API resta in memoria per questa sessione."
+
+msgid "{label} ({count})"
+msgstr "{label} ({count})"
+
+msgid "{tags} (+{count})"
+msgstr "{tags} (+{count})"
+
+msgid "{tag}, confidence {probability:.0%}, {state}"
+msgstr "{tag}, confidenza {probability:.0%}, {state}"
+
+msgid "{tag}: {probability:.0%}. This is the highest category score, not overall classification accuracy."
+msgstr "{tag}: {probability:.0%}. È il punteggio di categoria più alto, non l’accuratezza complessiva della classificazione."
+
+msgid "{tag}: {state}. Required threshold: {threshold:.0%}.\n{definition}"
+msgstr "{tag}: {state}. Soglia richiesta: {threshold:.0%}.\n{definition}"

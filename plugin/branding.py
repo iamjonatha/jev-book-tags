@@ -1,6 +1,6 @@
 """Public identity; import namespace and saved preferences stay stable across upgrades."""
 NAME = 'JEV Book Tags'
-VERSION = (1, 0, 3)
+VERSION = (1, 1, 1)
 DEFAULT_MODEL = 'jev-latest'
 
 

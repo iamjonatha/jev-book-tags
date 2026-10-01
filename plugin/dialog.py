@@ -5,15 +5,17 @@ import json
 
 from qt.core import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
                      QTableWidget, QTableWidgetItem, Qt, QThread, pyqtSignal,
-                     QProgressBar, QCheckBox, QMessageBox, QFileDialog, QPlainTextEdit)
+                     QProgressBar, QCheckBox, QMessageBox, QFileDialog, QPlainTextEdit,
+                     QComboBox, QWidget)
 from calibre.constants import config_dir
 
 from .client import JevClient, JevError, Cancelled
-from .core import metadata_state, merge_tags, validate_settings, fingerprint, questions
+from .core import metadata_state, merge_tags, validate_settings, fingerprint, questions, ranked_candidates
+from .detail import TagChoicePanel, reason_text
 from .engine import classify
 from .extract import extract_epub
 from .storage import Store
-from .settings import api_key, load_settings, library_identity
+from .settings import api_key, load_settings, library_identity, global_prefs
 from .branding import NAME, icon
 
 try:
@@ -92,6 +94,9 @@ class CatalogDialog(QDialog):
         self.invalidated = False
         self.batch = uuid.uuid4().hex
         self.tokens = 0
+        self.single = len(self.ids) == 1
+        self.single_panel = None
+        self.detail_dialogs = []
         self.setWindowTitle(NAME + ' — ' + _('Preview'))
         self.setWindowIcon(icon())
         self.resize(1150, 650)
@@ -109,12 +114,34 @@ class CatalogDialog(QDialog):
             editor_note.setWordWrap(True)
             layout.addWidget(editor_note)
         self.auto = QCheckBox(_('Automatically apply results ready for assignment'))
-        if editor:
+        if self.single:
             self.auto.setVisible(False)
         layout.addWidget(self.auto)
         self.table = QTableWidget(0, 8)
-        self.table.setHorizontalHeaderLabels([_('Apply'), _('Book'), _('Existing tags'), _('Proposed tags (editable)'), _('Probabilities'), _('Input'), _('Status'), _('Request')])
-        for col, width in enumerate((55, 180, 160, 200, 200, 90, 190, 120)):
+        self.table.setHorizontalHeaderLabels([_('Apply'), _('Book'), _('Existing tags'), _('Tags to assign'), _('Top confidence'), _('Input'), _('Status'), _('Details')])
+        self.table.setColumnHidden(2, True)
+        self.table.setColumnHidden(5, True)
+        self.table.itemChanged.connect(lambda item: self.update_selection() if item.column() == 0 else None)
+        self.table.cellDoubleClicked.connect(lambda row, col: self.open_details(self.results[row].get('book_id')))
+        filters = QHBoxLayout()
+        self.filter = QComboBox()
+        self.filter.currentIndexChanged.connect(self.apply_filter)
+        filters.addWidget(QLabel(_('Show'))); filters.addWidget(self.filter)
+        self.select_ready = QPushButton(_('Select visible ready books'))
+        self.select_ready.clicked.connect(self.select_visible_ready)
+        filters.addWidget(self.select_ready)
+        self.selection_label = QLabel(); filters.addWidget(self.selection_label, 1)
+        self.filter_bar = QWidget(); self.filter_bar.setLayout(filters)
+        layout.addWidget(self.filter_bar)
+        self.single_host = QWidget(); self.single_layout = QVBoxLayout(self.single_host)
+        self.single_layout.setContentsMargins(0, 0, 0, 0)
+        self.single_waiting = QLabel(_('Start classification to see suggested tags for this book.'))
+        self.single_layout.addWidget(self.single_waiting)
+        layout.addWidget(self.single_host, 1)
+        self.single_host.setVisible(self.single)
+        self.filter_bar.setVisible(not self.single)
+        self.table.setVisible(not self.single)
+        for col, width in enumerate((55, 260, 160, 280, 165, 90, 175, 95)):
             self.table.setColumnWidth(col, width)
         layout.addWidget(self.table)
         self.progress = QProgressBar()
@@ -133,6 +160,7 @@ class CatalogDialog(QDialog):
         self.cancel.setEnabled(False)
         self.apply = QPushButton(_('Apply checked rows'))
         self.apply.clicked.connect(self.apply_checked)
+        self.apply.setVisible(not self.single)
         self.apply.setEnabled(False)
         self.close_button = QPushButton(_('Close'))
         self.close_button.clicked.connect(self.close)
@@ -142,10 +170,12 @@ class CatalogDialog(QDialog):
         for button in (self.start, self.retry, self.cancel, self.apply, self.export, self.close_button):
             buttons.addWidget(button)
         layout.addLayout(buttons)
+        self.update_filters()
 
     def same_library(self):
         return (not self.invalidated and self.gui.current_db is self.legacy
                 and library_identity(self.gui.current_db) == self.identity
+                and load_settings(self.db) == self.values
                 and (self.editor is None or self.editor.valid(self.ids[0])))
 
     def invalidate(self):
@@ -154,6 +184,10 @@ class CatalogDialog(QDialog):
         self.start.setEnabled(False)
         self.apply.setEnabled(False)
         self.export.setEnabled(False)
+        if self.single_panel:
+            self.single_panel.confirm_button.setEnabled(False)
+        for dialog in self.detail_dialogs:
+            dialog.reject()
         self.status.setText(_('Preview expired. Reopen the plugin for the current library and settings.'))
 
     def start_work(self, run_ids=None, reset=True):
@@ -169,6 +203,8 @@ class CatalogDialog(QDialog):
             self.table.setRowCount(0)
             self.results = []
             self.tokens = 0
+            self.clear_single()
+            self.update_filters()
         self.progress.setValue(0)
         self.progress.setRange(0, len(run_ids))
         self.start.setEnabled(False)
@@ -218,33 +254,29 @@ class CatalogDialog(QDialog):
         if result.get('error'):
             checkbox.setFlags(Qt.ItemFlag.NoItemFlags)
         self.table.setItem(row, 0, checkbox)
+        result.setdefault('chosen_tags', list(result.get('tags', [])))
         probabilities = result.get('evaluation', {}).get('probabilities', {})
-        probability_text = '; '.join(c['name'] + ': ' + format(probabilities.get('cat_' + c['id'], 0), '.2f')
-                                     for c in self.values['categories'] if c.get('enabled', True))
-        status = _('Ready for assignment') if ready else _('Review required')
-        if result.get('error'):
-            status = _('Connection error; processing stopped') if result['error'] == 'connection' else _('Book could not be read')
-        elif not result.get('supported'):
-            status = _('Insufficient evidence')
-        warning = {'no_epub': _('No EPUB available'), 'no_text': _('No readable excerpts'),
-                   'extract_failed': _('EPUB extraction failed')}.get(result.get('warning'), '')
-        if warning:
-            status += ' — ' + warning
+        ranked = ranked_candidates(result['evaluation'], self.values) if result.get('evaluation') else []
+        confidence = format(ranked[0]['probability'], '.0%') if ranked else '—'
         texts = (result['title'], ', '.join(result.get('previous_tags', [])),
-                 ', '.join(result.get('tags', [])), probability_text,
-                 _('Metadata + excerpts') if result.get('source') == 'content' else _('Metadata'), status)
+                 self.tag_summary(result['chosen_tags']), confidence,
+                 _('Metadata + excerpts') if result.get('source') == 'content' else _('Metadata'), self.row_status(result))
         for col, text in enumerate(texts, 1):
             item = QTableWidgetItem(text)
-            item.setToolTip(text)
-            if col == 4 and probabilities:
-                item.setToolTip(text + '\n' + _('Evidence sufficiency') + ': ' + format(probabilities.get('evidence', 0), '.2f'))
-            if col != 3 or result.get('error'):
-                item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
+            item.setToolTip(reason_text(result) if col == 6 else text)
+            item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
+            if col == 3:
+                item.setData(Qt.ItemDataRole.UserRole, list(result['chosen_tags']))
+                item.setToolTip(', '.join(result['chosen_tags']))
+            if col == 4 and ranked:
+                item.setToolTip(_('{tag}: {probability:.0%}. This is the highest category score, not overall classification accuracy.').format(tag=ranked[0]['name'], probability=ranked[0]['probability']))
             self.table.setItem(row, col, item)
-        request_button = QPushButton(_('View sent input'))
-        request_button.setEnabled(not result.get('error') and 'input_fingerprint' in result)
-        request_button.clicked.connect(lambda _checked=False, ident=result.get('book_id'): self.view_input(ident))
-        self.table.setCellWidget(row, 7, request_button)
+        detail_button = QPushButton(_('Details…'))
+        detail_button.clicked.connect(lambda _checked=False, ident=result.get('book_id'): self.open_details(ident))
+        self.table.setCellWidget(row, 7, detail_button)
+        self.update_filters()
+        if self.single:
+            self.show_single(result)
         self.tokens += result.get('tokens_billed', 0)
         if ready and self.auto.isChecked() and self.same_library():
             try:
@@ -252,6 +284,149 @@ class CatalogDialog(QDialog):
             except Exception:
                 self.cancel_work()
                 self.table.item(row, 6).setText(_('Could not apply tags. Check the journal before retrying.'))
+        self.update_filters()
+
+    def tag_summary(self, tags):
+        text = ', '.join(tags[:2])
+        return _('{tags} (+{count})').format(tags=text, count=len(tags) - 2) if len(tags) > 2 else text
+
+    def row_status(self, result):
+        if result.get('error'):
+            return _('Connection error; processing stopped') if result['error'] == 'connection' else _('Book could not be read')
+        if result.get('applied'):
+            return _('Added to editor; confirm with OK') if self.editor else _('Applied')
+        if result.get('verified'):
+            return _('Verified by you')
+        if not result.get('supported'):
+            return _('Insufficient evidence')
+        return _('Ready for assignment') if result.get('status') == 'ready' else _('Review required')
+
+    def bucket(self, result):
+        if result.get('error'):
+            return 'error'
+        if result.get('applied'):
+            return 'applied'
+        if result.get('verified'):
+            return 'ready'
+        if not result.get('supported'):
+            return 'insufficient'
+        return 'ready' if result.get('status') == 'ready' else 'review'
+
+    def update_filters(self):
+        current = self.filter.currentData() or 'all'
+        self.filter.blockSignals(True)
+        self.filter.clear()
+        for name, label in (('all', _('All')), ('ready', _('Ready / verified')),
+                            ('review', _('To review')), ('insufficient', _('Insufficient evidence')),
+                            ('error', _('Errors')), ('applied', _('Applied'))):
+            count = len(self.results) if name == 'all' else sum(self.bucket(r) == name for r in self.results)
+            self.filter.addItem(_('{label} ({count})').format(label=label, count=count), name)
+        self.filter.setCurrentIndex(max(0, self.filter.findData(current)))
+        self.filter.blockSignals(False)
+        self.apply_filter()
+
+    def apply_filter(self, *_):
+        selected = self.filter.currentData() or 'all'
+        for row, result in enumerate(self.results):
+            self.table.setRowHidden(row, selected != 'all' and self.bucket(result) != selected)
+        self.update_selection()
+
+    def update_selection(self):
+        checked = [row for row in range(self.table.rowCount()) if self.table.item(row, 0)
+                   and self.table.item(row, 0).checkState() == Qt.CheckState.Checked]
+        hidden = sum(self.table.isRowHidden(row) for row in checked)
+        text = _('Selected books: {count} ({hidden} outside the filter)').format(count=len(checked), hidden=hidden)
+        self.selection_label.setText(text)
+        if hasattr(self, 'apply'):
+            self.apply.setText(_('Apply selected books ({count}, {hidden} hidden)').format(count=len(checked), hidden=hidden))
+
+    def select_visible_ready(self):
+        for row, result in enumerate(self.results):
+            if not self.table.isRowHidden(row) and self.bucket(result) == 'ready':
+                self.table.item(row, 0).setCheckState(Qt.CheckState.Checked)
+        self.update_selection()
+
+    def clear_single(self):
+        if self.single_panel:
+            self.single_layout.removeWidget(self.single_panel)
+            self.single_panel.deleteLater()
+            self.single_panel = None
+        self.single_waiting.show()
+
+    def show_single(self, result):
+        self.clear_single()
+        self.single_waiting.hide()
+        label = _('Add to metadata form') if self.editor else _('Apply tags')
+        panel = TagChoicePanel(result, self.values, label, self.single_host)
+        panel.inspect_input.connect(lambda: self.view_input(result.get('book_id')))
+        panel.confirmed.connect(lambda tags: self.confirm_tags(result, tags, apply=True))
+        self.single_layout.addWidget(panel)
+        self.single_panel = panel
+        self.resize(900, 700)
+
+    def make_details(self, book_id):
+        if not self.same_library():
+            self.invalidate()
+            return None
+        result = next((r for r in self.results if r.get('book_id') == book_id), None)
+        if result is None:
+            return None
+        dialog = QDialog(self)
+        dialog.setWindowTitle(NAME + ' — ' + _('Book details'))
+        dialog.setWindowIcon(icon()); dialog.resize(850, 620)
+        layout = QVBoxLayout(dialog)
+        panel = TagChoicePanel(result, self.values, _('Confirm tags'), dialog)
+        panel.inspect_input.connect(lambda: self.view_input(book_id))
+        panel.confirmed.connect(lambda tags: dialog.accept() if self.confirm_tags(result, tags) else None)
+        layout.addWidget(panel)
+        close = QPushButton(_('Close')); close.clicked.connect(dialog.reject); layout.addWidget(close)
+        dialog.panel = panel
+        self.detail_dialogs.append(dialog)
+        return dialog
+
+    def open_details(self, book_id):
+        dialog = self.make_details(book_id)
+        if dialog:
+            dialog.exec()
+            self.detail_dialogs.remove(dialog)
+            dialog.deleteLater()
+
+    def confirm_tags(self, result, tags, apply=False):
+        if not self.same_library():
+            self.invalidate()
+            return False
+        if result not in self.results or result.get('applied') or result.get('error'):
+            return False
+        allowed = {c['name'] for c in self.values['categories'] if c.get('enabled', True)}
+        if not tags or any(tag not in allowed for tag in tags) or (self.values['tag_mode'] == 'single' and len(tags) != 1):
+            return False
+        if not self.db.has_id(result['book_id']):
+            QMessageBox.information(self, _('Review required'), _('Book removed; skipped'))
+            return False
+        current = self.editor.snapshot() if self.editor else book_metadata(self.db, result['book_id'])
+        if metadata_state(current) != metadata_state(result['metadata']):
+            QMessageBox.information(self, _('Review required'), _('Metadata changed; classify again'))
+            return False
+        row = self.results.index(result)
+        result['chosen_tags'], result['verified'] = list(tags), True
+        self.table.item(row, 3).setText(self.tag_summary(tags))
+        self.table.item(row, 3).setData(Qt.ItemDataRole.UserRole, list(tags))
+        self.table.item(row, 3).setToolTip(', '.join(tags))
+        self.table.item(row, 6).setText(self.row_status(result))
+        self.table.item(row, 0).setCheckState(Qt.CheckState.Checked)
+        if apply:
+            try:
+                success = self.apply_row(row)
+            except Exception:
+                QMessageBox.warning(self, _('Apply'), _('Could not apply tags. Check the journal before retrying.'))
+                return False
+            if success and self.single_panel:
+                self.single_panel.confirm_button.setEnabled(False)
+                self.single_panel.reason.setText(self.row_status(result))
+            self.update_filters()
+            return success
+        self.update_filters()
+        return True
 
     def view_input(self, book_id):
         if not self.same_library():
@@ -304,9 +479,13 @@ class CatalogDialog(QDialog):
             review = sum(not r.get('error') and r.get('supported') and r.get('status') != 'ready' for r in self.results)
             self.progress.setRange(0, len(self.ids))
             self.progress.setValue(min(len(self.ids), len(self.results)))
-            self.status.setText(_('Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors. New input tokens: {tokens}.').format(
+            summary = _('Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors.').format(
                 processed=len(self.results), total=len(self.ids), ready=ready, review=review,
-                unsupported=unsupported, errors=errors, tokens=self.tokens))
+                unsupported=unsupported, errors=errors)
+            if global_prefs['developer_mode']:
+                summary += ' ' + _('New input tokens: {tokens}.').format(tokens=self.tokens)
+            self.status.setText(summary)
+        self.update_filters()
         if self.close_requested:
             self.close()
 
@@ -322,7 +501,7 @@ class CatalogDialog(QDialog):
         if metadata_state(current_metadata) != metadata_state(result['metadata']):
             self.table.item(row, 6).setText(_('Metadata changed; classify again'))
             return False
-        proposed = [t.strip() for t in self.table.item(row, 3).text().split(',') if t.strip()]
+        proposed = list(self.table.item(row, 3).data(Qt.ItemDataRole.UserRole) or [])
         allowed = {c['name'] for c in self.values['categories'] if c.get('enabled', True)}
         if any(tag not in allowed for tag in proposed):
             self.table.item(row, 6).setText(_('Use only configured category names'))
@@ -337,6 +516,8 @@ class CatalogDialog(QDialog):
             result['applied'] = True
             self.table.item(row, 0).setCheckState(Qt.CheckState.Unchecked)
             self.table.item(row, 6).setText(_('Added to editor; confirm with OK'))
+            self.update_filters()
+            self.update_single_applied(result)
             return True
         field = self.values['destination']
         with self.store.lock:
@@ -353,7 +534,15 @@ class CatalogDialog(QDialog):
         self.table.item(row, 6).setText(_('Applied'))
         self.gui.library_view.model().refresh_ids([book_id])
         self.gui.tags_view.recount()
+        self.update_filters()
+        self.update_single_applied(result)
         return True
+
+    def update_single_applied(self, result):
+        if self.single_panel and self.single_panel.result is result:
+            self.single_panel.confirm_button.setEnabled(False)
+            self.single_panel.reason.setText(self.row_status(result))
+            self.status.setText(self.row_status(result))
 
     def apply_checked(self):
         if not self.same_library():
@@ -373,7 +562,7 @@ class CatalogDialog(QDialog):
             with open(path, 'w', encoding='utf-8-sig', newline='') as stream:
                 writer = csv.writer(stream)
                 writer.writerow(['book_id', 'title', 'mode', 'source', 'model', 'status',
-                                 'proposed_tags', 'input_characters', 'new_input_tokens', 'evidence_probability']
+                                 'proposed_tags', 'input_characters', 'new_input_tokens', 'evidence_probability', 'decision_reason', 'verified_by_user', 'machine_suggested_tags']
                                 + [c['name'] for c in self.values['categories'] if c.get('enabled', True)])
                 def cell(value):
                     # Spreadsheet formulas from book titles must remain plain text.
@@ -384,9 +573,9 @@ class CatalogDialog(QDialog):
                     probabilities = evaluation.get('probabilities', {})
                     values = [result.get('book_id', ''), result['title'], self.values['mode'],
                               result.get('source', ''), evaluation.get('model', ''),
-                              self.table.item(row, 6).text(), self.table.item(row, 3).text(),
+                              self.table.item(row, 6).text(), ', '.join(self.table.item(row, 3).data(Qt.ItemDataRole.UserRole) or []),
                               result.get('input_chars', 0), result.get('tokens_billed', 0),
-                              probabilities.get('evidence', '')]
+                              probabilities.get('evidence', ''), result.get('reason', ''), bool(result.get('verified')), ', '.join(result.get('tags', []))]
                     values += [probabilities.get('cat_' + c['id'], '') for c in self.values['categories'] if c.get('enabled', True)]
                     writer.writerow([cell(value) for value in values])
         except OSError:
@@ -398,6 +587,8 @@ class CatalogDialog(QDialog):
             self.cancel_work()
             event.ignore()
         else:
+            for dialog in self.detail_dialogs:
+                dialog.reject()
             event.accept()
 
     def reject(self):

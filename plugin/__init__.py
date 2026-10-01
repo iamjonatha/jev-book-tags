@@ -5,7 +5,7 @@ class JevCatalogPlugin(InterfaceActionBase):
     name = 'JEV Book Tags'
     description = 'Classify library books with TypeSafe AI JEV.'
     author = 'CalibreJevCatalog contributors'
-    version = (1, 0, 3)
+    version = (1, 1, 1)
     minimum_calibre_version = (9, 0, 0)
     supported_platforms = ['windows', 'osx', 'linux']
     actual_plugin = 'calibre_plugins.jev_catalog.action:JevCatalogAction'

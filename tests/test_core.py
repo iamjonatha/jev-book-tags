@@ -58,7 +58,7 @@ class CoreTests(unittest.TestCase):
         self.store = Store(self.temp.name, 'library-one')
 
     def test_reject_invalid_taxonomy(self):
-        self.values['categories'][1]['name'] = 'STORIA'
+        self.values['categories'][1]['name'] = self.values['categories'][0]['name'].upper()
         with self.assertRaises(ValueError):
             validate_settings(self.values)
 
@@ -80,12 +80,12 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(result['tags'], [])
         self.assertEqual(result['status'], 'review')
 
-    def test_multilabel_and_uncertainty(self):
+    def test_excluded_uncertain_category_does_not_block_confident_tags(self):
         qs = questions(self.values)
         value = response(qs)
         value['answers']['cat_history']['noul'] = 0.6
         result = decide(validate_response(value, qs), self.values, True)
-        self.assertEqual(result['status'], 'review')
+        self.assertEqual(result['status'], 'ready')
         self.assertIn('Biography', result['tags'])
         self.assertNotIn('History', result['tags'])
 
@@ -107,7 +107,7 @@ class CoreTests(unittest.TestCase):
         result['answers']['cat_history']['noul'] = 0.9
         result['answers']['cat_biography']['noul'] = 0.84
         decision = decide(validate_response(result, qs), self.values, True)
-        self.assertEqual(decision['tags'], ['History', 'Biography'])
+        self.assertEqual(decision['tags'], ['History'])
         self.assertEqual(decision['status'], 'ready')
 
     def test_close_probabilities_single_mode_requires_review(self):
@@ -134,6 +134,44 @@ class CoreTests(unittest.TestCase):
         decision = decide(validate_response(result, qs), self.values, True)
         self.assertEqual(decision['tags'], ['History', 'Biography'])
         self.assertEqual(decision['status'], 'review')
+
+    def test_threshold_and_tie_matrix(self):
+        qs = questions(self.values)
+        for first, second, mode, expected, status in (
+                (.90, .88, 'multiple', ['History', 'Biography'], 'ready'),
+                (.90, .84, 'multiple', ['History'], 'ready'),
+                (.80, .79, 'multiple', ['History', 'Biography'], 'review'),
+                (.90, .88, 'single', ['History'], 'review'),
+                (.90, .82, 'single', ['History'], 'review'),
+                (.90, .81, 'single', ['History'], 'ready'),
+                (.85, .05, 'multiple', ['History'], 'ready'),
+                (.849, .05, 'multiple', ['History'], 'review'),
+                (.50, .49, 'multiple', [], 'review')):
+            with self.subTest(first=first, second=second, mode=mode):
+                self.values['tag_mode'] = mode
+                value = response(qs, category=.01)
+                value['answers']['cat_history']['noul'] = first
+                value['answers']['cat_biography']['noul'] = second
+                decision = decide(validate_response(value, qs), self.values, True)
+                self.assertEqual(decision['tags'], expected)
+                self.assertEqual(decision['status'], status)
+
+    def test_category_threshold_is_not_bypassed_by_close_probability(self):
+        self.values['categories'][1]['threshold'] = .95
+        qs = questions(self.values)
+        value = response(qs, category=.01)
+        value['answers']['cat_history']['noul'] = .90
+        value['answers']['cat_biography']['noul'] = .89
+        decision = decide(validate_response(value, qs), self.values, True)
+        self.assertEqual(decision['tags'], ['History'])
+        self.assertEqual(decision['status'], 'ready')
+
+    def test_explicit_review_reasons_and_evidence_boundary(self):
+        qs = questions(self.values)
+        value = response(qs, category=.9)
+        for evidence, material, reason in ((.80, True, 'ready'), (.799, True, 'low_evidence'), (.99, False, 'missing_material')):
+            value['answers']['evidence']['noul'] = evidence
+            self.assertEqual(decide(validate_response(value, qs), self.values, material)['reason'], reason)
 
     def test_auto_enriches_short_metadata_before_call(self):
         client = FakeClient()

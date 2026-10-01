@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "9b7488342973592193cae14bef718b6c",
+      "name": "Fiction",
+      "description": "Literary or general fiction, including realistic novels and short stories. Exclude nonfiction; do not use this as an automatic umbrella tag for every genre novel.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "0ba561bed89a567f95757fccf02a5245",
+      "name": "Mystery",
+      "description": "Fiction centered on solving a crime, investigating a mystery or identifying a culprit.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "e0b8ca7007a15ef78db5a1f8ea114993",
+      "name": "Noir",
+      "description": "Dark crime fiction centered on criminals, corruption, moral ambiguity or social decay. A bleak atmosphere alone is insufficient.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "d957db893f0152aabd3b2b292f1b6b02",
+      "name": "Fantasy",
+      "description": "Fiction in which magic, imaginary worlds, mythical creatures or supernatural forces are central.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "4318e0527170518d8b0ca9f9801e8836",
+      "name": "Science Fiction",
+      "description": "Fiction centered on scientific speculation, future technologies, time travel, extraterrestrial life or speculative societies.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "fe8ac6058bd156a5878c196a6b5cc9ee",
+      "name": "Horror",
+      "description": "Fiction intended primarily to evoke fear or dread through monsters, supernatural threats or disturbing events.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "91f86aead01e534cb84915846e2cc149",
+      "name": "Adventure",
+      "description": "Fiction centered on journeys, exploration, survival, quests or action-driven exploits.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "ec4c8ca8bf655c33954bc10f06e0d2b0",
+      "name": "Historical Fiction",
+      "description": "Fiction set in a past historical period where historical events or conditions are central. Exclude historical nonfiction and novels merely old today.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "fe0d0fa3d9575570a03f2b3dd402b8ad",
+      "name": "History",
+      "description": "Nonfiction about past events, civilizations, historical people or historical developments. Exclude historical fiction.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "31840af24c695eb5ba38ebbdf710fdf1",
+      "name": "Biography & Memoir",
+      "description": "Nonfiction biographies, autobiographies, memoirs and personal life accounts.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "838627b764785bc6b9e2a06a547a2466",
+      "name": "Science",
+      "description": "Nonfiction explaining natural science, scientific discoveries or scientific research. Exclude science fiction and computing manuals.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "e17b3611abfe581383cb72918a0c89d4",
+      "name": "Philosophy & Politics",
+      "description": "Nonfiction about philosophical ideas, ethics, political thought, government or social and political arguments.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "2d1e834c0f785986be8fbf219c29f617",
+      "name": "Poetry",
+      "description": "Collections of poems or works primarily written as poetry or verse. Exclude ordinary prose fiction.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "aff996d4b8145fc9b544a881ef1cd01c",
+      "name": "Essays & Nonfiction",
+      "description": "General essays and nonfiction that do not primarily fit another configured nonfiction subject. Exclude fiction and subject-specific technical manuals.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "dce19a4d131a52ae827f1e720795218a",
+      "name": "Computing",
+      "description": "Nonfiction about computers, operating systems, software development, programming, networking or computing tools. May coexist with a more specific computing tag.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "b637f11b5d16597e9b88b96886027934",
+      "name": "Programming",
+      "description": "Practical or theoretical nonfiction about writing software, programming languages, algorithms, testing or development tools, including version control.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "41f6ef2113a25b888742d27c09954ca0",
+      "name": "Artificial Intelligence",
+      "description": "Nonfiction primarily about artificial intelligence, machine learning, neural networks or AI systems. Incidental mentions of AI are insufficient.",
+      "enabled": true,
+      "threshold": null
+    },
+    {
+      "id": "73e93027ffc652c4aa55f81be401a2af",
+      "name": "Data Science",
+      "description": "Nonfiction primarily about computational data analysis, statistics for data analysis, data visualization or data science workflows.",
+      "enabled": true,
+      "threshold": null
+    }
+  ]
+}

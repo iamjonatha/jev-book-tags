@@ -1,0 +1,1309 @@
+{
+  "recorded_at_utc": "2026-10-01T08:11:00.204297+00:00",
+  "elapsed_seconds": 23.09,
+  "plugin_version": "1.0.3",
+  "service": "TypeSafe AI JEV",
+  "model": "jev-latest",
+  "input_mode": "auto",
+  "threshold": 0.85,
+  "tag_mode": "multiple",
+  "tie_margin": 0.08,
+  "categories": [
+    {
+      "description": "Literary or general fiction, including realistic novels and short stories. Exclude nonfiction; do not use this as an automatic umbrella tag for every genre novel.",
+      "enabled": true,
+      "id": "9b7488342973592193cae14bef718b6c",
+      "name": "Fiction",
+      "threshold": null
+    },
+    {
+      "description": "Fiction centered on solving a crime, investigating a mystery or identifying a culprit.",
+      "enabled": true,
+      "id": "0ba561bed89a567f95757fccf02a5245",
+      "name": "Mystery",
+      "threshold": null
+    },
+    {
+      "description": "Dark crime fiction centered on criminals, corruption, moral ambiguity or social decay. A bleak atmosphere alone is insufficient.",
+      "enabled": true,
+      "id": "e0b8ca7007a15ef78db5a1f8ea114993",
+      "name": "Noir",
+      "threshold": null
+    },
+    {
+      "description": "Fiction in which magic, imaginary worlds, mythical creatures or supernatural forces are central.",
+      "enabled": true,
+      "id": "d957db893f0152aabd3b2b292f1b6b02",
+      "name": "Fantasy",
+      "threshold": null
+    },
+    {
+      "description": "Fiction centered on scientific speculation, future technologies, time travel, extraterrestrial life or speculative societies.",
+      "enabled": true,
+      "id": "4318e0527170518d8b0ca9f9801e8836",
+      "name": "Science Fiction",
+      "threshold": null
+    },
+    {
+      "description": "Fiction intended primarily to evoke fear or dread through monsters, supernatural threats or disturbing events.",
+      "enabled": true,
+      "id": "fe8ac6058bd156a5878c196a6b5cc9ee",
+      "name": "Horror",
+      "threshold": null
+    },
+    {
+      "description": "Fiction centered on journeys, exploration, survival, quests or action-driven exploits.",
+      "enabled": true,
+      "id": "91f86aead01e534cb84915846e2cc149",
+      "name": "Adventure",
+      "threshold": null
+    },
+    {
+      "description": "Fiction set in a past historical period where historical events or conditions are central. Exclude historical nonfiction and novels merely old today.",
+      "enabled": true,
+      "id": "ec4c8ca8bf655c33954bc10f06e0d2b0",
+      "name": "Historical Fiction",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction about past events, civilizations, historical people or historical developments. Exclude historical fiction.",
+      "enabled": true,
+      "id": "fe0d0fa3d9575570a03f2b3dd402b8ad",
+      "name": "History",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction biographies, autobiographies, memoirs and personal life accounts.",
+      "enabled": true,
+      "id": "31840af24c695eb5ba38ebbdf710fdf1",
+      "name": "Biography & Memoir",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction explaining natural science, scientific discoveries or scientific research. Exclude science fiction and computing manuals.",
+      "enabled": true,
+      "id": "838627b764785bc6b9e2a06a547a2466",
+      "name": "Science",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction about philosophical ideas, ethics, political thought, government or social and political arguments.",
+      "enabled": true,
+      "id": "e17b3611abfe581383cb72918a0c89d4",
+      "name": "Philosophy & Politics",
+      "threshold": null
+    },
+    {
+      "description": "Collections of poems or works primarily written as poetry or verse. Exclude ordinary prose fiction.",
+      "enabled": true,
+      "id": "2d1e834c0f785986be8fbf219c29f617",
+      "name": "Poetry",
+      "threshold": null
+    },
+    {
+      "description": "General essays and nonfiction that do not primarily fit another configured nonfiction subject. Exclude fiction and subject-specific technical manuals.",
+      "enabled": true,
+      "id": "aff996d4b8145fc9b544a881ef1cd01c",
+      "name": "Essays & Nonfiction",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction about computers, operating systems, software development, programming, networking or computing tools. May coexist with a more specific computing tag.",
+      "enabled": true,
+      "id": "dce19a4d131a52ae827f1e720795218a",
+      "name": "Computing",
+      "threshold": null
+    },
+    {
+      "description": "Practical or theoretical nonfiction about writing software, programming languages, algorithms, testing or development tools, including version control.",
+      "enabled": true,
+      "id": "b637f11b5d16597e9b88b96886027934",
+      "name": "Programming",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction primarily about artificial intelligence, machine learning, neural networks or AI systems. Incidental mentions of AI are insufficient.",
+      "enabled": true,
+      "id": "41f6ef2113a25b888742d27c09954ca0",
+      "name": "Artificial Intelligence",
+      "threshold": null
+    },
+    {
+      "description": "Nonfiction primarily about computational data analysis, statistics for data analysis, data visualization or data science workflows.",
+      "enabled": true,
+      "id": "73e93027ffc652c4aa55f81be401a2af",
+      "name": "Data Science",
+      "threshold": null
+    }
+  ],
+  "total_books": 32,
+  "processed_books": 32,
+  "results": [
+    {
+      "book_id": 1,
+      "title": "A Vindication of the Rights of Woman / With Strictures on Political and Moral Subjects",
+      "tags": [
+        "Philosophy & Politics",
+        "Essays & Nonfiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8029,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.02,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.01,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.02,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.16,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.08,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.97,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.9,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5637
+      }
+    },
+    {
+      "book_id": 2,
+      "title": "Alice's Adventures in Wonderland",
+      "tags": [
+        "Fantasy"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8744,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.77,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.1,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.98,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.03,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.03,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.8,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.03,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.05,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.02,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.02,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6293
+      }
+    },
+    {
+      "book_id": 3,
+      "title": "Frankenstein; or, the modern prometheus",
+      "tags": [
+        "Science Fiction",
+        "Horror"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8408,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.74,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.15,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.12,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.25,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.79,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.87,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.21,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.14,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.01,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.05,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.02,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6008
+      }
+    },
+    {
+      "book_id": 4,
+      "title": "Jane Eyre: An Autobiography",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 5108,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.97,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.05,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.03,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.05,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.05,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.09,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.18,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.14,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.03,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.02,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.0,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5108
+      }
+    },
+    {
+      "book_id": 5,
+      "title": "Oliver Twist",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 9228,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.98,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.2,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.35,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.02,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.06,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.5,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.62,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.03,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.04,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6739
+      }
+    },
+    {
+      "book_id": 6,
+      "title": "On the Origin of Species By Means of Natural Selection / Or, the Preservation of Favoured Races in the Struggle for Life",
+      "tags": [
+        "Science"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8383,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.01,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.02,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.01,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.14,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.03,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.99,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.14,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.53,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6003
+      }
+    },
+    {
+      "book_id": 7,
+      "title": "Phantastes: A Faerie Romance for Men and Women",
+      "tags": [
+        "Fantasy"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8434,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.59,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.05,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.02,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.98,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.03,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.15,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.78,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.03,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.01,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.04,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.03,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.0,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6057
+      }
+    },
+    {
+      "book_id": 8,
+      "title": "Pride and Prejudice",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8824,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.98,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.04,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.03,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.4,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6464
+      }
+    },
+    {
+      "book_id": 9,
+      "title": "The Hound of the Baskervilles",
+      "tags": [
+        "Mystery"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8368,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.58,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.99,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.36,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.1,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.36,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.47,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.19,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5882
+      }
+    },
+    {
+      "book_id": 10,
+      "title": "The innocence of Father Brown",
+      "tags": [
+        "Mystery"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8540,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.8,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.98,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.19,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.04,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.07,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.14,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.1,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.05,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.02,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6064
+      }
+    },
+    {
+      "book_id": 11,
+      "title": "The Moonstone",
+      "tags": [
+        "Mystery"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 9098,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.58,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.99,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.25,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.02,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.07,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.18,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.25,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.03,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6468
+      }
+    },
+    {
+      "book_id": 12,
+      "title": "The Time Machine",
+      "tags": [
+        "Science Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 9104,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.99,
+          "cat_9b7488342973592193cae14bef718b6c": 0.46,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.08,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.06,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.1,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.99,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.18,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.79,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.02,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.1,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6381
+      }
+    },
+    {
+      "book_id": 13,
+      "title": "The war of the worlds",
+      "tags": [
+        "Science Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 9926,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.43,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.03,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.03,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.1,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.99,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.54,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.5,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.11,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.01,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.04,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6838
+      }
+    },
+    {
+      "book_id": 14,
+      "title": "The Wonderful Wizard of Oz",
+      "tags": [
+        "Fantasy",
+        "Adventure"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8410,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.69,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.05,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.99,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.05,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.06,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.96,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.03,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.01,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6046
+      }
+    },
+    {
+      "book_id": 15,
+      "title": "Up from Slavery: An Autobiography",
+      "tags": [
+        "History",
+        "Biography & Memoir"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8779,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.02,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.03,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.02,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.91,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.99,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.48,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.74,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6058
+      }
+    },
+    {
+      "book_id": 17,
+      "title": "Moby Dick; Or, The Whale",
+      "tags": [
+        "Fiction",
+        "Adventure"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 9219,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.96,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.08,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.07,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.06,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.13,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.91,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.46,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.03,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.03,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.06,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.09,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.02,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6841
+      }
+    },
+    {
+      "book_id": 18,
+      "title": "The Adventures of Sherlock Holmes",
+      "tags": [
+        "Fiction",
+        "Mystery"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8391,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.85,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.98,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.2,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.02,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.07,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.27,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.19,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.03,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.03,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6036
+      }
+    },
+    {
+      "book_id": 19,
+      "title": "The Picture of Dorian Gray",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8475,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.89,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.13,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.34,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.49,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.05,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.58,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.06,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.12,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.01,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.1,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6113
+      }
+    },
+    {
+      "book_id": 20,
+      "title": "Treasure Island",
+      "tags": [
+        "Adventure"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 6180,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.81,
+          "cat_9b7488342973592193cae14bef718b6c": 0.82,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.18,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.14,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.06,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.07,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.99,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.53,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.01,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6180
+      }
+    },
+    {
+      "book_id": 21,
+      "title": "Heart of Darkness",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 5223,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.85,
+          "cat_9b7488342973592193cae14bef718b6c": 0.96,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.12,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.36,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.04,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.3,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.71,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.49,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.04,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.03,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.1,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.02,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5223
+      }
+    },
+    {
+      "book_id": 22,
+      "title": "Great Expectations",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 7758,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.97,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.19,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.24,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.02,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.08,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.17,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.41,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.03,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5376
+      }
+    },
+    {
+      "book_id": 23,
+      "title": "Adventures of Huckleberry Finn",
+      "tags": [
+        "Fiction",
+        "Adventure"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 6347,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.88,
+          "cat_9b7488342973592193cae14bef718b6c": 0.96,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.1,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.08,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.03,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.03,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.95,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.69,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.03,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.03,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.04,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6347
+      }
+    },
+    {
+      "book_id": 24,
+      "title": "The Adventures of Tom Sawyer, Complete",
+      "tags": [
+        "Fiction",
+        "Adventure"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 6153,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.88,
+          "cat_9b7488342973592193cae14bef718b6c": 0.94,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.16,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.04,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.05,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.03,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.91,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.2,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6153
+      }
+    },
+    {
+      "book_id": 25,
+      "title": "Sense and Sensibility",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8538,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.98,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.03,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.02,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.04,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.29,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6176
+      }
+    },
+    {
+      "book_id": 26,
+      "title": "Leaves of Grass",
+      "tags": [
+        "Poetry"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 7627,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.04,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.02,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.03,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.03,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.02,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.05,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.02,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.05,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.05,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.21,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.99,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.04,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5268
+      }
+    },
+    {
+      "book_id": 27,
+      "title": "Dracula",
+      "tags": [
+        "Fantasy",
+        "Horror"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8806,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.53,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.26,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.07,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.85,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.04,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.99,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.31,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.17,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.01,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6435
+      }
+    },
+    {
+      "book_id": 28,
+      "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+      "tags": [
+        "Fiction",
+        "Mystery",
+        "Horror"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 6038,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.91,
+          "cat_9b7488342973592193cae14bef718b6c": 0.8,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.84,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.59,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.32,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.28,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.81,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.11,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.1,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.03,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.04,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6038
+      }
+    },
+    {
+      "book_id": 29,
+      "title": "The Secret Garden",
+      "tags": [
+        "Fiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 9119,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.93,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.08,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.26,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.02,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.02,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.24,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.17,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.01,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.02,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.02,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.01,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6751
+      }
+    },
+    {
+      "book_id": 30,
+      "title": "Walden, and On The Duty Of Civil Disobedience",
+      "tags": [
+        "Philosophy & Politics",
+        "Essays & Nonfiction"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8174,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.03,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.02,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.08,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.02,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.13,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.53,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.09,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.96,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.03,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.94,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 5664
+      }
+    },
+    {
+      "book_id": 31,
+      "title": "Leviathan",
+      "tags": [
+        "Philosophy & Politics"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "content",
+      "tokens_billed": 8804,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.98,
+          "cat_9b7488342973592193cae14bef718b6c": 0.01,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.02,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.01,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.02,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.15,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.02,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.06,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.99,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.66,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.01,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.01,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.01
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 6440
+      }
+    },
+    {
+      "book_id": 32,
+      "title": "Pro Git",
+      "tags": [
+        "Computing",
+        "Programming"
+      ],
+      "status": "ready",
+      "supported": true,
+      "source": "metadata",
+      "tokens_billed": 2313,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.01,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.01,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.01,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.01,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.05,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.99,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.98,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.04
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 2313
+      }
+    },
+    {
+      "book_id": 33,
+      "title": "The Linux Command Line",
+      "tags": [
+        "Computing"
+      ],
+      "status": "review",
+      "supported": true,
+      "source": "metadata",
+      "tokens_billed": 2322,
+      "evaluation": {
+        "probabilities": {
+          "evidence": 0.97,
+          "cat_9b7488342973592193cae14bef718b6c": 0.01,
+          "cat_0ba561bed89a567f95757fccf02a5245": 0.01,
+          "cat_e0b8ca7007a15ef78db5a1f8ea114993": 0.01,
+          "cat_d957db893f0152aabd3b2b292f1b6b02": 0.01,
+          "cat_4318e0527170518d8b0ca9f9801e8836": 0.01,
+          "cat_fe8ac6058bd156a5878c196a6b5cc9ee": 0.01,
+          "cat_91f86aead01e534cb84915846e2cc149": 0.01,
+          "cat_ec4c8ca8bf655c33954bc10f06e0d2b0": 0.01,
+          "cat_fe0d0fa3d9575570a03f2b3dd402b8ad": 0.02,
+          "cat_31840af24c695eb5ba38ebbdf710fdf1": 0.01,
+          "cat_838627b764785bc6b9e2a06a547a2466": 0.01,
+          "cat_e17b3611abfe581383cb72918a0c89d4": 0.01,
+          "cat_2d1e834c0f785986be8fbf219c29f617": 0.01,
+          "cat_aff996d4b8145fc9b544a881ef1cd01c": 0.07,
+          "cat_dce19a4d131a52ae827f1e720795218a": 0.99,
+          "cat_b637f11b5d16597e9b88b96886027934": 0.75,
+          "cat_41f6ef2113a25b888742d27c09954ca0": 0.01,
+          "cat_73e93027ffc652c4aa55f81be401a2af": 0.06
+        },
+        "model": "jev-1.13.0",
+        "input_tokens": 2322
+      }
+    }
+  ],
+  "simulated": false
+}

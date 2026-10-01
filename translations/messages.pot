@@ -1,16 +1,34 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8\nLanguage: en\n"
 
+msgid "A tag must exceed 50% and reach its own threshold to be assigned automatically. Below-threshold candidates require your confirmation."
+msgstr ""
+
+msgid "A title and author alone are not enough. Add a meaningful description or readable EPUB excerpts."
+msgstr ""
+
 msgid "A — Bottom button bar"
 msgstr ""
 
 msgid "API key"
 msgstr ""
 
+msgid "Above threshold"
+msgstr ""
+
 msgid "Add tag"
 msgstr ""
 
+msgid "Add to metadata form"
+msgstr ""
+
 msgid "Added to editor; confirm with OK"
+msgstr ""
+
+msgid "Advanced options"
+msgstr ""
+
+msgid "All"
 msgstr ""
 
 msgid "Applied"
@@ -28,6 +46,12 @@ msgstr ""
 msgid "Apply checked rows"
 msgstr ""
 
+msgid "Apply selected books ({count}, {hidden} hidden)"
+msgstr ""
+
+msgid "Apply tags"
+msgstr ""
+
 msgid "Assign"
 msgstr ""
 
@@ -43,10 +67,16 @@ msgstr ""
 msgid "B — Icon next to Tags"
 msgstr ""
 
+msgid "Below threshold"
+msgstr ""
+
 msgid "Book"
 msgstr ""
 
 msgid "Book could not be read"
+msgstr ""
+
+msgid "Book details"
 msgstr ""
 
 msgid "Book removed; skipped"
@@ -62,9 +92,6 @@ msgid "Cancel processing"
 msgstr ""
 
 msgid "Cancelling; waiting for the current request to finish."
-msgstr ""
-
-msgid "Candidates within this probability distance of the best are considered close. Values at or below 0.5 are never added just because they are close."
 msgstr ""
 
 msgid "Check category names, unique IDs and thresholds between 0.5 and 1."
@@ -88,13 +115,22 @@ msgstr ""
 msgid "Classify with {name}"
 msgstr ""
 
+msgid "Click a tag to include or exclude it. Percentages are JEV confidence, not measured accuracy. Below-threshold tags require your explicit confirmation."
+msgstr ""
+
 msgid "Close"
+msgstr ""
+
+msgid "Close candidate, below threshold"
 msgstr ""
 
 msgid "Close-probability tolerance"
 msgstr ""
 
 msgid "Configuration"
+msgstr ""
+
+msgid "Confirm tags"
 msgstr ""
 
 msgid "Connection"
@@ -124,7 +160,19 @@ msgstr ""
 msgid "Description / inclusion rules"
 msgstr ""
 
+msgid "Details"
+msgstr ""
+
+msgid "Details…"
+msgstr ""
+
+msgid "EPUB excerpts were requested but are unavailable. Confirm a metadata-based choice manually."
+msgstr ""
+
 msgid "EPUB extraction failed"
+msgstr ""
+
+msgid "Enable developer mode"
 msgstr ""
 
 msgid "Enabled"
@@ -136,10 +184,16 @@ msgstr ""
 msgid "Enter an API key in plugin settings first."
 msgstr ""
 
-msgid "Evidence sufficiency"
+msgid "Enter your TypeSafe AI API key"
+msgstr ""
+
+msgid "Errors"
 msgstr ""
 
 msgid "Existing tags"
+msgstr ""
+
+msgid "Existing tags (preserved): {tags}"
 msgstr ""
 
 msgid "Export profile"
@@ -160,6 +214,9 @@ msgstr ""
 msgid "Input"
 msgstr ""
 
+msgid "Input: {source}. Evidence confidence: {evidence:.0%}."
+msgstr ""
+
 msgid "Insufficient evidence"
 msgstr ""
 
@@ -167,6 +224,9 @@ msgid "Invalid category file."
 msgstr ""
 
 msgid "Invalid profile file."
+msgstr ""
+
+msgid "JEV evidence confidence is below 80%. The available material may not represent the book."
 msgstr ""
 
 msgid "Maximum EPUB text characters"
@@ -193,7 +253,10 @@ msgstr ""
 msgid "Model"
 msgstr ""
 
-msgid "Multiple tags, including close candidates"
+msgid "Multiple tags above their thresholds"
+msgstr ""
+
+msgid "New input tokens: {tokens}."
 msgstr ""
 
 msgid "No EPUB available"
@@ -205,10 +268,28 @@ msgstr ""
 msgid "No changes to restore."
 msgstr ""
 
+msgid "No configured category exceeds 50%. Choose manually or improve the category definitions."
+msgstr ""
+
+msgid "No evaluation is available for this book."
+msgstr ""
+
 msgid "No readable excerpts"
 msgstr ""
 
+msgid "No tag reaches its assignment threshold. These are suggestions to confirm manually."
+msgstr ""
+
+msgid "None"
+msgstr ""
+
 msgid "One tag only"
+msgstr ""
+
+msgid "Optional override of the global threshold: enter 0.95 for 95%, or leave empty to use the global value."
+msgstr ""
+
+msgid "Percentage points from the best score. In single-tag mode a close competitor requires review. In multi-tag mode a close candidate below its own threshold remains optional, never automatically assigned."
 msgstr ""
 
 msgid "Preview"
@@ -217,16 +298,13 @@ msgstr ""
 msgid "Preview expired. Reopen the plugin for the current library and settings."
 msgstr ""
 
-msgid "Probabilities"
-msgstr ""
-
-msgid "Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors. New input tokens: {tokens}."
+msgid "Processed {processed}/{total}. Results: {ready} ready; {review} to review; {unsupported} insufficient evidence; {errors} errors."
 msgstr ""
 
 msgid "Processing. Successful evaluations are cached for resume."
 msgstr ""
 
-msgid "Proposed tags (editable)"
+msgid "Ready / verified"
 msgstr ""
 
 msgid "Ready for assignment"
@@ -239,9 +317,6 @@ msgid "Remember the key in the system keychain"
 msgstr ""
 
 msgid "Remove tag"
-msgstr ""
-
-msgid "Request"
 msgstr ""
 
 msgid "Request input"
@@ -265,13 +340,40 @@ msgstr ""
 msgid "Review required"
 msgstr ""
 
+msgid "Select visible ready books"
+msgstr ""
+
+msgid "Selected books: {count} ({hidden} outside the filter)"
+msgstr ""
+
+msgid "Selected tags reach their thresholds and the evidence is sufficient."
+msgstr ""
+
+msgid "Selected tags: {tags}"
+msgstr ""
+
 msgid "Settings"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Show all categories, including low probabilities"
+msgstr ""
+
+msgid "Show sent input and technical processing statistics."
 msgstr ""
 
 msgid "Single-tag mode: choose only one proposed tag"
 msgstr ""
 
+msgid "Single-tag mode: two or more likely candidates are within the closeness margin. Choose one."
+msgstr ""
+
 msgid "Start / resume"
+msgstr ""
+
+msgid "Start classification to see suggested tags for this book."
 msgstr ""
 
 msgid "Starting sends book metadata and, when enabled, EPUB excerpts to TypeSafe AI. Existing tags are preserved."
@@ -289,6 +391,9 @@ msgstr ""
 msgid "Tag labels are saved exactly as entered. Changing the interface language does not rename existing tags."
 msgstr ""
 
+msgid "Tags to assign"
+msgstr ""
+
 msgid "Test connection"
 msgstr ""
 
@@ -304,10 +409,19 @@ msgstr ""
 msgid "Threshold (optional)"
 msgstr ""
 
+msgid "To review"
+msgstr ""
+
+msgid "Top confidence"
+msgstr ""
+
 msgid "Use only configured category names"
 msgstr ""
 
 msgid "Use the current form values and add suggested tags here. OK saves them; Cancel discards them."
+msgstr ""
+
+msgid "Verified by you"
 msgstr ""
 
 msgid "View sent input"
@@ -316,5 +430,20 @@ msgstr ""
 msgid "Wait for the current processing job to finish."
 msgstr ""
 
-msgid "Without Remember, the API key stays in memory for this session. TYPESAFE_API_KEY is also supported."
+msgid "Without Remember, the API key stays in memory for this session."
+msgstr ""
+
+msgid "{label} ({count})"
+msgstr ""
+
+msgid "{tags} (+{count})"
+msgstr ""
+
+msgid "{tag}, confidence {probability:.0%}, {state}"
+msgstr ""
+
+msgid "{tag}: {probability:.0%}. This is the highest category score, not overall classification accuracy."
+msgstr ""
+
+msgid "{tag}: {state}. Required threshold: {threshold:.0%}.\n{definition}"
 msgstr ""

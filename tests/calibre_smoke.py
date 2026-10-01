@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 from qt.core import (QApplication, QMainWindow, QTableView, QStandardItemModel,
                      QStandardItem, QAbstractItemView, QItemSelectionModel, QAction,
-                     QMessageBox)
+                     QMessageBox, Qt)
 from calibre.customize.ui import load_plugin
 from calibre.db.legacy import LibraryDatabase
 from calibre.ebooks.metadata.book.base import Metadata
@@ -297,7 +297,7 @@ class NativeTests(unittest.TestCase):
         d = self.dialog([self.ids[1]])
         self.process(d)
         self.assertEqual(len(d.results[0]['tags']), 1)
-        d.table.item(0, 3).setText('History, Biography')
+        d.table.item(0, 3).setData(Qt.ItemDataRole.UserRole, ['History', 'Biography'])
         self.assertFalse(d.apply_row(0))
         values = settings.load_settings(self.db)
         values['tag_mode'] = 'multiple'
@@ -375,6 +375,180 @@ class NativeTests(unittest.TestCase):
                         editor.hide()
         finally:
             settings.save_settings(original, self.db)
+
+    def add_scored(self, dialog, ident, history=.90, biography=.84, evidence=.99, material=True):
+        from calibre_plugins.jev_catalog.core import decide
+        from calibre_plugins.jev_catalog.dialog import book_metadata
+        probabilities = {'cat_' + c['id']: .01 for c in dialog.values['categories'] if c.get('enabled', True)}
+        probabilities.update(cat_history=history, cat_biography=biography, evidence=evidence)
+        evaluation = {'probabilities': probabilities, 'model': 'jev-test', 'input_tokens': 0}
+        result = decide(evaluation, dialog.values, material)
+        metadata = book_metadata(self.db, ident)
+        result.update(evaluation=evaluation, book_id=ident, title=metadata['title'], metadata=metadata,
+                      previous_tags=list(self.db.field_for('tags', ident)), source='metadata', tokens_billed=0)
+        dialog.add_result(result)
+        return result
+
+    def test_15_single_book_chips_require_confirmation_and_keep_manual_tags(self):
+        self.db.set_field('tags', {self.ids[0]: ['Manual detail']})
+        d = self.dialog([self.ids[0]])
+        result = self.add_scored(d, self.ids[0])
+        self.assertTrue(d.single)
+        self.assertTrue(d.table.isHidden())
+        panel = d.single_panel
+        self.assertTrue(panel.buttons['History'].isChecked())
+        self.assertFalse(panel.buttons['Biography'].isChecked())
+        self.assertFalse(panel.buttons['Fantasy'].isVisible())
+        panel.show_all.setChecked(True)
+        self.assertFalse(panel.buttons['Fantasy'].isHidden())
+        panel.buttons['Biography'].click()
+        self.assertEqual(list(self.db.field_for('tags', self.ids[0])), ['Manual detail'])
+        self.assertEqual(result['tags'], ['History'])
+        panel.confirm_button.click()
+        self.assertEqual(set(self.db.field_for('tags', self.ids[0])), {'Manual detail', 'History', 'Biography'})
+        self.assertTrue(result['verified'])
+        self.assertTrue(result['applied'])
+        self.assertFalse(panel.confirm_button.isEnabled())
+        self.assertEqual(result['evaluation']['probabilities']['cat_biography'], .84)
+        d.show(); app.processEvents(); app.processEvents()
+        self.assertGreaterEqual(panel.grid.columnCount(), 2)
+        self.assertIn('1%', panel.buttons['Science Fiction'].text())
+        if os.environ['CALIBRE_OVERRIDE_LANG'] == 'it':
+            d.grab().save(str(ROOT / 'dist/single-book-tags.png'))
+
+    def test_16_filters_and_detail_verification_preserve_hidden_selections(self):
+        d = self.dialog()
+        first = self.add_scored(d, self.ids[0])
+        second = self.add_scored(d, self.ids[1], history=.80, biography=.79)
+        d.finished_work()
+        d.filter.setCurrentIndex(d.filter.findData('review'))
+        self.assertTrue(d.table.isRowHidden(0))
+        self.assertFalse(d.table.isRowHidden(1))
+        self.assertIn('1', d.selection_label.text())
+        details = d.make_details(self.ids[1])
+        self.addCleanup(details.close)
+        before = list(self.db.field_for('tags', self.ids[1]))
+        details.panel.buttons['Biography'].click()
+        self.assertEqual(second['chosen_tags'], ['History', 'Biography'])
+        details.panel.confirm_button.click()
+        self.assertEqual(second['chosen_tags'], ['History'])
+        self.assertTrue(second['verified'])
+        self.assertEqual(second['status'], 'review')
+        self.assertEqual(list(self.db.field_for('tags', self.ids[1])), before)
+        self.assertTrue(d.table.isRowHidden(1))
+        self.assertEqual(d.table.item(1, 0).checkState(), Qt.CheckState.Checked)
+        self.assertIn('2', d.apply.text())
+        d.filter.setCurrentIndex(d.filter.findData('all'))
+        d.show(); app.processEvents()
+        if os.environ['CALIBRE_OVERRIDE_LANG'] == 'it':
+            d.grab().save(str(ROOT / 'dist/bulk-book-tags.png'))
+        d.filter.setCurrentIndex(d.filter.findData('error'))
+        d.apply_checked()
+        self.assertTrue(first['applied'] and second['applied'])
+
+    def test_17_single_tag_near_tie_and_exclusive_chip_selection(self):
+        original = settings.load_settings(self.db)
+        values = dict(original, tag_mode='single')
+        settings.save_settings(values, self.db)
+        self.addCleanup(settings.save_settings, original, self.db)
+        self.db.set_field('tags', {self.ids[0]: ['Manual exclusive']})
+        d = self.dialog([self.ids[0]])
+        result = self.add_scored(d, self.ids[0], history=.90, biography=.88)
+        self.assertEqual(result['reason'], 'near_tie')
+        self.assertEqual(d.table.item(0, 0).checkState(), Qt.CheckState.Unchecked)
+        panel = d.single_panel
+        panel.buttons['Biography'].click()
+        self.assertFalse(panel.buttons['History'].isChecked())
+        self.assertEqual(panel.chosen_tags(), ['Biography'])
+        panel.confirm_button.click()
+        self.assertEqual(set(self.db.field_for('tags', self.ids[0])), {'Manual exclusive', 'Biography'})
+
+    def test_18_closing_details_does_not_confirm_and_empty_selection_is_blocked(self):
+        d = self.dialog()
+        result = self.add_scored(d, self.ids[0], history=.80, biography=.79)
+        details = d.make_details(self.ids[0])
+        self.addCleanup(details.close)
+        details.panel.buttons['Biography'].click()
+        details.reject()
+        self.assertFalse(result.get('verified', False))
+        self.assertEqual(result['chosen_tags'], ['History', 'Biography'])
+        details = d.make_details(self.ids[0])
+        self.addCleanup(details.close)
+        details.panel.buttons['History'].click()
+        details.panel.buttons['Biography'].click()
+        self.assertFalse(details.panel.confirm_button.isEnabled())
+        self.assertFalse(d.confirm_tags(result, []))
+
+    def test_19_settings_change_blocks_open_detail_confirmation(self):
+        original = settings.load_settings(self.db)
+        d = self.dialog()
+        result = self.add_scored(d, self.ids[0])
+        details = d.make_details(self.ids[0])
+        self.addCleanup(details.close)
+        changed = dict(original, threshold=.95)
+        settings.save_settings(changed, self.db)
+        self.addCleanup(settings.save_settings, original, self.db)
+        before = list(self.db.field_for('tags', self.ids[0]))
+        self.assertFalse(d.confirm_tags(result, ['History']))
+        self.assertTrue(d.invalidated)
+        self.assertEqual(list(self.db.field_for('tags', self.ids[0])), before)
+
+    def test_20_insufficient_evidence_is_never_autoapplied(self):
+        d = self.dialog()
+        d.auto.setChecked(True)
+        before = list(self.db.field_for('tags', self.ids[0]))
+        result = self.add_scored(d, self.ids[0], evidence=.79)
+        self.assertEqual(result['reason'], 'low_evidence')
+        self.assertEqual(result['tags'], [])
+        self.assertFalse(result.get('applied', False))
+        self.assertEqual(list(self.db.field_for('tags', self.ids[0])), before)
+        d.filter.setCurrentIndex(d.filter.findData('insufficient'))
+        self.assertFalse(d.table.isRowHidden(0))
+        d.select_visible_ready()
+        self.assertEqual(d.table.item(0, 0).checkState(), Qt.CheckState.Unchecked)
+
+    def test_21_tag_summary_keeps_all_tags_in_selection_and_csv(self):
+        d = self.dialog()
+        result = self.add_scored(d, self.ids[0])
+        tags = ['History', 'Biography', 'Fantasy']
+        self.assertTrue(d.confirm_tags(result, tags))
+        self.assertEqual(d.table.item(0, 3).data(Qt.ItemDataRole.UserRole), tags)
+        self.assertIn('+1', d.table.item(0, 3).text())
+        path = os.environ['JEV_TEST_DIR'] + '/chosen.csv'
+        with patch('calibre_plugins.jev_catalog.dialog.QFileDialog.getSaveFileName', return_value=(path, '')):
+            d.export_results()
+        import csv
+        with open(path, encoding='utf-8-sig') as stream:
+            row = next(csv.DictReader(stream))
+        self.assertEqual(row['proposed_tags'], ', '.join(tags))
+        self.assertEqual(row['machine_suggested_tags'], 'History')
+        self.assertEqual(row['verified_by_user'], 'True')
+
+    def test_22_developer_mode_and_advanced_options(self):
+        old = settings.global_prefs['developer_mode']
+        try:
+            settings.global_prefs['developer_mode'] = False
+            config = ConfigWidget(self.db)
+            self.assertFalse(config.developer_mode.isChecked())
+            self.assertTrue(config.advanced.isHidden())
+            self.assertTrue(config.table.isColumnHidden(3))
+            config.advanced_toggle.setChecked(True)
+            self.assertFalse(config.advanced.isHidden())
+            self.assertFalse(config.table.isColumnHidden(3))
+            d = self.dialog([self.ids[0]])
+            self.add_scored(d, self.ids[0])
+            d.finished_work()
+            self.assertTrue(d.single_panel.inspect.isHidden())
+            plugin_translate = CatalogDialog.finished_work.__globals__.get('_', lambda text: text)
+            self.assertNotIn(plugin_translate('New input tokens: {tokens}.').format(tokens=0), d.status.text())
+            settings.global_prefs['developer_mode'] = True
+            dev = self.dialog([self.ids[0]])
+            self.add_scored(dev, self.ids[0])
+            dev.finished_work()
+            self.assertFalse(dev.single_panel.inspect.isHidden())
+            self.assertIn(plugin_translate('New input tokens: {tokens}.').format(tokens=0), dev.status.text())
+        finally:
+            settings.global_prefs['developer_mode'] = old
 
 
 outcome = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(NativeTests))

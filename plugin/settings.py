@@ -13,6 +13,7 @@ credentials = CredentialStore(config_dir)
 global_prefs = JSONConfig('plugins/jev_catalog')
 global_prefs.defaults['settings'] = DEFAULTS
 global_prefs.defaults['remember_key'] = False
+global_prefs.defaults['developer_mode'] = False
 PREF_NAME = 'jev_catalog_settings'
 
 

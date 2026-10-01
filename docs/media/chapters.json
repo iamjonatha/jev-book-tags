@@ -1,0 +1,57 @@
+[
+  {
+    "image": "01-intro.png",
+    "duration_seconds": 5,
+    "title": "JEV Book Tags"
+  },
+  {
+    "image": "02-settings.png",
+    "duration_seconds": 7,
+    "title": "A clean settings screen"
+  },
+  {
+    "image": "09-threshold-before.png",
+    "duration_seconds": 3,
+    "title": "Open Advanced options: empty category cells inherit 85%"
+  },
+  {
+    "image": "09-threshold.png",
+    "duration_seconds": 7,
+    "title": "Set Programming to 0.95: category threshold 95%"
+  },
+  {
+    "image": "10-single.png",
+    "duration_seconds": 8,
+    "title": "Single book: clickable tag choices"
+  },
+  {
+    "image": "03-review.png",
+    "duration_seconds": 10,
+    "title": "32 real evaluations: 31 ready, one to review"
+  },
+  {
+    "image": "11-review-detail.png",
+    "duration_seconds": 9,
+    "title": "Review only the uncertain book"
+  },
+  {
+    "image": "04-apply.png",
+    "duration_seconds": 8,
+    "title": "Apply 31 ready books; preserve existing tags"
+  },
+  {
+    "image": "05-editor.png",
+    "duration_seconds": 7,
+    "title": "Classify from the metadata editor"
+  },
+  {
+    "image": "06-results.png",
+    "duration_seconds": 8,
+    "title": "Genuine cached responses; no new API calls"
+  },
+  {
+    "image": "07-outro.png",
+    "duration_seconds": 4,
+    "title": "Start with your library"
+  }
+]

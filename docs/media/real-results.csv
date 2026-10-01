@@ -1,0 +1,33 @@
+title,suggested_tags,status,source,evidence,new_input_tokens,decision_reason
+A Vindication of the Rights of Woman / With Strictures on Political and Moral Subjects,Philosophy & Politics; Essays & Nonfiction,ready,content,0.98,0,ready
+Alice's Adventures in Wonderland,Fantasy,ready,content,0.98,0,ready
+"Frankenstein; or, the modern prometheus",Horror,ready,content,0.98,0,ready
+Jane Eyre: An Autobiography,Fiction,ready,content,0.97,0,ready
+Oliver Twist,Fiction,ready,content,0.97,0,ready
+"On the Origin of Species By Means of Natural Selection / Or, the Preservation of Favoured Races in the Struggle for Life",Science,ready,content,0.98,0,ready
+Phantastes: A Faerie Romance for Men and Women,Fantasy,ready,content,0.97,0,ready
+Pride and Prejudice,Fiction,ready,content,0.97,0,ready
+The Hound of the Baskervilles,Mystery,ready,content,0.97,0,ready
+The innocence of Father Brown,Mystery,ready,content,0.97,0,ready
+The Moonstone,Mystery,ready,content,0.98,0,ready
+The Time Machine,Science Fiction,ready,content,0.99,0,ready
+The war of the worlds,Science Fiction,ready,content,0.98,0,ready
+The Wonderful Wizard of Oz,Fantasy; Adventure,ready,content,0.97,0,ready
+Up from Slavery: An Autobiography,Biography & Memoir; History,ready,content,0.98,0,ready
+"Moby Dick; Or, The Whale",Fiction; Adventure,ready,content,0.98,0,ready
+The Adventures of Sherlock Holmes,Mystery; Fiction,ready,content,0.97,0,ready
+The Picture of Dorian Gray,Fiction,ready,content,0.98,0,ready
+Treasure Island,Adventure,ready,content,0.81,0,ready
+Heart of Darkness,Fiction,ready,content,0.85,0,ready
+Great Expectations,Fiction,ready,content,0.98,0,ready
+Adventures of Huckleberry Finn,Fiction; Adventure,ready,content,0.88,0,ready
+"The Adventures of Tom Sawyer, Complete",Fiction; Adventure,ready,content,0.88,0,ready
+Sense and Sensibility,Fiction,ready,content,0.97,0,ready
+Leaves of Grass,Poetry,ready,content,0.97,0,ready
+Dracula,Horror; Fantasy,ready,content,0.98,0,ready
+The strange case of Dr. Jekyll and Mr. Hyde,Mystery; Horror; Fiction,review,content,0.91,0,below_threshold
+The Secret Garden,Fiction,ready,content,0.97,0,ready
+"Walden, and On The Duty Of Civil Disobedience",Philosophy & Politics; Essays & Nonfiction,ready,content,0.97,0,ready
+Leviathan,Philosophy & Politics,ready,content,0.98,0,ready
+Pro Git,Computing; Programming,ready,metadata,0.97,0,ready
+The Linux Command Line,Computing,ready,metadata,0.97,0,ready

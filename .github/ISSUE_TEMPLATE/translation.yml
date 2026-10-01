@@ -1,0 +1,26 @@
+name: Offer or request a translation
+description: Help add a missing interface language.
+title: '[Translation] '
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language and locale code
+      placeholder: e.g. French (fr)
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: How would you like to help?
+      options:
+        - I can submit a translation
+        - I can review a translation as a native speaker
+        - I would like this language and need help getting started
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: No API key or library data is needed to translate the interface.
